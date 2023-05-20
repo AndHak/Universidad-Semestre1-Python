@@ -1,0 +1,2 @@
+#Dada una lista de números enteros, debes encontrar el par de números en la lista cuya suma sea la más grande de todos los posibles pares.
+#Luego, debes calcular el producto de esos dos números y mostrar el resultado obtenido.
