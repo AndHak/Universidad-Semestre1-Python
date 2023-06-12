@@ -21,6 +21,8 @@ while repetir.lower() == "si":
     print("8. Factorial")
     factorial = 0
     print("9. Mayor y menor")
+    mayor = 0
+    menor = 0
     print("10. Promedio")
     promedio = 0
     print("11. Moda")
@@ -232,8 +234,6 @@ while repetir.lower() == "si":
     elif operacion == 9:
         cantidad = int(input("Cuantos numeros desea calcular? "))
         contador_mayor = 0
-        mayor = 0
-        menor = 0
         while contador <= cantidad:
             num = int(input("Ingrese un número: "))
             if contador == 1:
