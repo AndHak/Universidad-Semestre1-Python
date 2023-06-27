@@ -21,5 +21,3 @@ fibonaccis = sorted(fibonaccis)
 print("Los números de Fibonacci encontrados son:", fibonaccis)
 print("El número de Fibonacci más pequeño es:", fibonaccis[0])
 print("El número de Fibonacci más grande es:", fibonaccis[-1])
-
-#Cambio prueba
