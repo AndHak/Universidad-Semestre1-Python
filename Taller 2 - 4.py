@@ -5,8 +5,38 @@ array2 = [2, 4, 6, 8, 10]
 
 array1 += array2
 
-print(array1)
+lista = array1
 
-#con ordenamiento sin sort
+#BurbleSort
 
+for i in range(len(lista)-1):
+    for j in range(len(lista)-1):
+        if lista[j] > lista[j+1]:
+            temporal = lista[j]    
+            lista[j] = lista[j+1]
+            lista[j+1] = temporal
+print(lista)
+
+#SelectionSort
+
+for i in range(len(lista)-1):
+    menor = i
+    for j in range(i+1, len(lista)):
+        if lista[j] < lista[menor]:
+            menor = j
+    temporal = lista[menor]
+    lista[menor] = lista[i]
+    lista[i] = temporal
+print(lista)
+
+#InsertionSort
+
+for i in range(1, len(lista)):
+    actual = lista[i]
+    indice = i
+    while indice > 0 and lista[indice - 1] > actual:
+        lista[indice] = lista[indice - 1]
+        indice -= 1
+    lista[indice] = actual
+print(lista)
 
