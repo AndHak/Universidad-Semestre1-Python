@@ -1098,5 +1098,27 @@ def menu_inicio():
                 print(numeros)
             taller_2_punto_18()
     if respuesta == 3:
+        respuesta_evaluacion_1 = int(input("""Escoja un punto
+                                           1.   Se tiene una cantidad de números dada, determinar el primo mayor, el Fibonacci menor,
+                                           el par menor y realizar la multiplicación de ellos con sumas.25%
+                                           2.   Se tiene una cantidad de números dada donde hay varios números que se repiten.
+                                           Encontrar el número de veces que se repite el segundo Fibonacci (en orden de entrada)
+                                           y determinar si este contador es un número primo. 25%
+                                           3.   Se tiene una cantidad dada de ternas (3 valores numéricos por terna) correspondientes a los lados de
+                                           triángulos, determinar cuántos triángulos equiláteros, escalenos e isósceles se encuentran
+                                           en estos y si la suma de los perímetros de los triángulos equiláteros, es un número Fibonacci. 25%
+                                           4.	Se tiene una cantidad de números dada, encontrar los tres primeros Fibonacci de acuerdo
+                                           al orden de entrada y determinar el promedio de los números pares
+                                           que están entre el mayor y el menor de estos Fibonacci. 25%"""))
+        if respuesta_evaluacion_1 == 1:
+            def evaluacion_1_punto_1():
+
+            evaluacion_1_punto_1()
+        if respuesta_evaluacion_1 == 2:
+            def evaluacion_1_punto_2():
+                
+            evaluacion_1_punto_2()
+        
     if respuesta == 4:
+        
 menu_inicio()
