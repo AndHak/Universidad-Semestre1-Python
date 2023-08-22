@@ -1112,7 +1112,7 @@ def menu_inicio():
                                            que están entre el mayor y el menor de estos Fibonacci. 25%"""))
         if respuesta_evaluacion_1 == 1:
             def evaluacion_1_punto_1():
-
+                
             evaluacion_1_punto_1()
         if respuesta_evaluacion_1 == 2:
             def evaluacion_1_punto_2():
@@ -1120,5 +1120,5 @@ def menu_inicio():
             evaluacion_1_punto_2()
         
     if respuesta == 4:
-        
+
 menu_inicio()
