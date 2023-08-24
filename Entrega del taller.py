@@ -1179,7 +1179,240 @@ def menu_inicio():
                                         19.	Se tiene una matriz con datos numéricos repetidos, formar un vector con aquellos contadores de datos que se repiten y que sean números Fibonacci, sin repetidos
                                             """))      
         if respuesta_taller_3 == 1:
-            
+            def taller_3_punto_1():
+                import random
+
+                matriz1 = []
+
+                filas = random.randint(2,8)
+                columnas = random.randint(2,8)
+
+                for fila in range(filas):
+                    fila_actual = []
+                    for elemento in range(columnas):
+                        numero_random = random.randint(1,10)
+                        fila_actual.append(numero_random)
+                    matriz1.append(fila_actual)
+                print("")
+                for fila in matriz1:
+                    print(fila)
+
+                def contar_repeticiones(matriz):
+                    repeticiones = {}
+                    for fila in range(filas):
+                        for elemento in matriz[fila]:
+                            if elemento in repeticiones:
+                                repeticiones[elemento] += 1
+                            else:
+                                repeticiones[elemento] = 1
+                    return repeticiones
+
+                matriz = contar_repeticiones(matriz1)
+
+                max_repeticiones = 0
+                numero_mas_repeticiones = None
+
+                min_repeticiones = float("inf")
+                numero_menos_repeticiones = None
+
+                for numero, repeticiones in matriz.items():
+                    if repeticiones > max_repeticiones:
+                        max_repeticiones = repeticiones
+                        numero_mas_repeticiones = numero
+                    if repeticiones < min_repeticiones:
+                        min_repeticiones = repeticiones
+                        numero_menos_repeticiones = numero
+                    print(f"Numero: {numero}    Repeticiones: {repeticiones}" )
+
+                print(f"\nEl numero que mas se repite es: {numero_mas_repeticiones} con {max_repeticiones} repeticones")
+                print(f"\nEl numero que menos se repite es: {numero_menos_repeticiones} con {min_repeticiones} repeticiones")
+
+            taller_3_punto_1()
+        if respuesta_taller_3 == 2:
+            def taller_3_punto_2():
+                import random
+
+                filas = random.randint(3, 8)
+                columnas = random.randint(3, 8)
+                matriz = []
+
+                for fila in range(filas):
+                    fila_actual = []
+                    for elemento in range(columnas):
+                        numero_random = random.randint(1, 20)
+                        fila_actual.append(numero_random)
+                    matriz.append(fila_actual)
+
+                for fila in matriz:
+                    print(fila)
+
+                numero_mayor = 0
+                numero_menor = float("inf")
+
+                #Para recorrer la matriz
+                for fila in matriz:
+                    for numero in fila:
+                        if numero > numero_mayor:
+                            numero_mayor = numero
+                        if numero < numero_menor:
+                            numero_menor = numero
+
+                print(f"Numero menor de toda la matriz: {numero_menor}")
+                print(f"Numero mayor de toda la matriz: {numero_mayor}")
+
+                #Para recorrer columnas
+                for i in range(columnas):
+                    numero_mayor_columna = 0
+                    numero_menor_columna = float("inf")
+                    suma = 0
+                    contador = 0
+                    for j in range(filas):
+                        numero = matriz[j][i]
+                        suma += numero
+                        contador += 1
+                        if numero > numero_mayor_columna:
+                            numero_mayor_columna = numero
+                        if numero < numero_menor_columna:
+                            numero_menor_columna = numero
+                    promedio = suma/contador
+                    print(f"Promedio: {promedio:.2f}")
+                    print(f"El número menor de la columna {i+1} es el número: {numero_menor_columna}")
+                    print(f"El número mayor de la columna {i+1} es el número: {numero_mayor_columna}")
+            taller_3_punto_2()
+        if respuesta_taller_3 == 3:
+            def taller_3_punto_3():
+                import random
+
+                filas = random.randint(2,8)
+                columnas = random.randint(2,8)
+                matriz = []
+
+                for i in range(filas):
+                    fila_actual = []
+                    for j in range(columnas):
+                        numero_random = random.randint(1,50)
+                        fila_actual.append(numero_random)
+                    matriz.append(fila_actual)
+
+                for fila in matriz:
+                    print(fila)
+
+                mayor = 0
+                menor = float("inf")
+
+                for i, fila in enumerate(matriz):
+                    for numero in fila:
+                        if numero > mayor:
+                            mayor = numero
+                            posicion_mayor = i
+                        if numero < menor:
+                            menor = numero
+                            posicion_menor = i
+
+                print(f"Menor: {menor}  fila: {posicion_menor+1}")
+                print(f"Mayor: {mayor}  fila: {posicion_mayor+1}")
+
+                #cambiar filas
+                matriz[posicion_mayor], matriz[posicion_menor] = matriz[posicion_menor], matriz[posicion_mayor]
+                for fila in matriz:
+                    print(fila)
+
+            taller_3_punto_3()
+        if respuesta_taller_3 == 4:
+            def taller_3_punto_4():
+                import random
+
+                filas = random.randint(3,10)
+                columnas = random.randint(3,10)
+                matriz = []
+
+                for i in range(filas):
+                    fila_actual = []
+                    for j in range(columnas):
+                        numero_random = random.randint(1,50)
+                        fila_actual.append(numero_random)
+                    matriz.append(fila_actual)
+
+                for fila in matriz:
+                    print(fila)
+
+                primo_menor = float("inf")
+                primo_mayor = 0
+
+                for i in range(columnas):
+                    for j in range(filas):
+                        numero = matriz[j][i]
+                        condicion = 1
+                        divisores = 0
+                        es_primo = False
+                        while condicion <= numero:
+                            if numero % condicion == 0:
+                                divisores += 1
+                            condicion += 1
+                        if divisores == 2:
+                            es_primo = True
+                            if es_primo:
+                                if numero > primo_mayor:
+                                    primo_mayor = numero
+                                    posicion_primo_mayor = i
+                                if numero < primo_menor:
+                                    primo_menor = numero
+                                    posicion_primo_menor = i
+
+                print(f"Primo mayor: {primo_mayor}   posicion columna: {posicion_primo_mayor+1}")
+                print(f"Primo menor: {primo_menor}   posicion columna: {posicion_primo_menor+1}")
+
+                # Intercambiar columnas
+                for columna in matriz:
+                    columna[posicion_primo_mayor], columna[posicion_primo_menor] = columna[posicion_primo_menor], columna[posicion_primo_mayor]
+
+                print("Matriz después del intercambio:")
+                for fila in matriz:
+                    print(fila)
+
+            taller_3_punto_4()
+        if respuesta_taller_3 == 5:
+            def taller_3_punto_5():
+                
+            taller_3_punto_5()
+        if respuesta_taller_3 == 6:
+            def taller_3_punto_6():
+            taller_3_punto_6()
+        if respuesta_taller_3 == 7:
+            def taller_3_punto_7():
+            taller_3_punto_7()
+        if respuesta_taller_3 == 8:
+            def taller_3_punto_8():
+            taller_3_punto_8()
+        if respuesta_taller_3 == 9:
+            def taller_3_punto_9():
+            taller_3_punto_9()
+        if respuesta_taller_3 == 10:
+            def taller_3_punto_10():
+            taller_3_punto_10()
+        if respuesta_taller_3 == 11:
+            def taller_3_punto_11():
+            taller_3_punto_11()
+        if respuesta_taller_3 == 12:
+            def taller_3_punto_12():
+            taller_3_punto_12()
+        if respuesta_taller_3 == 13:
+            def taller_3_punto_13():
+            taller_3_punto_13()
+        if respuesta_taller_3 == 14:
+            def taller_3_punto_14():
+            taller_3_punto_14()
+        if respuesta_taller_3 == 15:
+            def taller_3_punto_15():
+            taller_3_punto_15()
+        if respuesta_taller_3 == 16:
+            def taller_3_punto_16():
+            taller_3_punto_16()
+
+
+
+
+
     if respuesta == 4:
         respuesta_evaluacion_1 = int(input("""Escoja un punto
                                            
