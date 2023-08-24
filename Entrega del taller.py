@@ -2,10 +2,11 @@ def menu_inicio():
     respuesta = int(input("""Escoja un menu:
           1. Taller 1
           2. Taller 2
-          3. Evaluación 1
-          4. Evaluación 2"""))
+          3. Taller 3                
+          4. Evaluación 1
+          5. Evaluación 2"""))
     if respuesta == 1:
-        respuesta_taller_1 = int(input("""¿Qué Punto desea ver a continuación:  
+        respuesta_taller_1 = int(input("""Qué Punto desea ver a continuación:  
                                        1. Área figuras geometricas y mayor y menor 
                                        2. Área figuras geometricas y ordenadas
                                        3. Factura de agua, servicios públicos
@@ -438,8 +439,20 @@ def menu_inicio():
             taller_1_punto_24()
         if respuesta_taller_1 == 25:
         if respuesta_taller_1 == 26:
+            def taller_1_punto_26():
+                lado1 = int(input("Ingrese el lado 1 del triángulo: "))
+                lado2 = int(input("Ingrese el lado 2 del triángulo: "))
+                lado3 = int(input("Ingrese el lado 3 del triángulo: "))
+
+                if lado1 == lado2 == lado3:
+                    print("El triángulo es equilátero.")
+                elif lado1 != lado2 and lado2 != lado3 and lado1 != lado3:
+                    print("El triángulo es escaleno.")
+                else:
+                    print("El triángulo es isósceles.")
+            taller_1_punto_26()
     if respuesta == 2:
-        respuesta_taller_2 = int(input("""¿Qué Punto desea ver a continuación:  
+        respuesta_taller_2 = int(input("""Qué Punto desea ver a continuación:  
                                        1. Primo que más se repite
                                        2. Eliminar los numeros pares
                                        3. Eliminar primos y fibonaccis
@@ -1098,7 +1111,84 @@ def menu_inicio():
                 print(numeros)
             taller_2_punto_18()
     if respuesta == 3:
+        respuesta_taller_3 = int(input("""Escoja el punto que desea ver acontinuación: 
+                                       
+                                        1.	Se tiene una matriz con datos numéricos repetidos, determinar los datos que más se repiten.
+
+                                        2.	Se tiene una matriz con datos numéricos determinar el mayor, menor y promedio de cada columna.
+
+                                        3.	Se tiene una matriz con datos numéricos, intercambiar las filas donde se encuentre el mayor y el menor de la matriz.
+
+                                        4.	Se tiene una matriz con datos numéricos, intercambiar las columnas donde se encuentra el primo mayor y el primo menor.
+
+                                        5.	Se tienen dos matrices con datos numéricos, formar un vector con los Fibonacci comunes de las dos matrices sin repetidos.
+
+                                        6.	Se tienen dos matrices con datos numéricos, formar un vector con los primos que están en los dos matrices sin repetidos.
+
+                                        7.	Se tiene una matriz cuadrada con datos numéricos, formar un vector con los primos que se encuentran en la diagonal principal y la diagonal secundaria.
+
+                                        8.	Se tiene una matriz cuadrada con datos numéricos, Comparar el promedio de los números pares que están sobre la diagonal principal, con el promedio de los impares de los datos que están bajo la diagonal principal.
+
+                                        9.	Se tiene una matriz con datos numéricos, donde hay varios primos, determinar si el segundo primo encontrado al recorrer la matriz por columnas es consecutivo con el cuarto primo encontrado.
+
+                                        10.	Ordenar las columnas pares ascendentemente y las columnas impares descendentemente
+
+                                        11.	Se tienen dos matrices ordenadas ascendentemente, obtener un vector ordenado ascendentemente con la mezcla de los dos anteriores. (ordenamiento por mezcla).
+
+                                        12.	Intercambiar las filas de una matriz de acuerdo al orden ascendente de los promedios de cada fila
+
+                                        13.	Se tiene una matriz cuadrada de orden N realizar lo siguiente
+
+                                        -	Hallar el promedio de la diagonal principal y el promedio de la diagonal secundaria
+                                        -	Ordenar ascendentemente la diagonal principal
+                                        -	Hallar el promedio de los pares que están encima de la diagonal principal y de los impares de la diagonal secundaria
+                                        -	Llenar la diagonal principal con el primo menor de la matriz y la diagonal secundaria con el Fibonacci mayor.
+                                        -	Llenar el contorno de la matriz con el par mayor de la matriz y la parte interna con el menor de los impares de la matriz.
+
+                                        14.	Se tienen dos matrices con datos numéricos y se solicita;
+                                        -	Formar un vector con los elementos comunes de las dos matrices sin repetidos
+                                        -	Formar un vector con los primos comunes de las dos matrices sin repetidos
+                                        -	Formar un vector con los primos no comunes de las dos matrices sin repetidos
+
+                                        15.	Se tiene una matriz con datos numéricos repetidos, formar un vector con aquellos contadores de datos que se repiten y que sean números Fibonacci, sin repetidos
+
+                                        16.	Se tiene una matriz con datos numéricos y se solicita
+                                        -	Intercambia la primera columna con la última
+                                        -	Obtener el mayor, menor y promedio de cada columna
+                                        -	Ordenar las filas pares ascendentemente y las filas impares descendentemente
+                                        -	Ordenar la matriz descendentemente
+                                        -	Intercambiar las filas de una matriz de acuerdo al orden ascendente de los promedios de cada fila
+                                        -	Intercambiar las filas donde se encuentre el mayor y el menor de la matriz
+                                        -	Intercambiar la fila donde se encuentre el Fibonacci 2 con la fila donde se encuentra el  Fibonacci 4.
+                                        -	Intercambiar las filas donde se encuentre el primo mayor y el Fibonacci menor
+                                        -	Determinar si el primo 2 y el primo 4 según el recorrido por filas de la matriz, son consecutivos, es decir, no hay un número primo entre los dos 
+
+
+                                        17.	Se tiene una matriz cuadrada de orden N realizar lo siguiente
+                                        -	Hallar el promedio de la diagonal principal y el promedio de la diagonal secundaria
+                                        -	Ordenar ascendentemente la diagonal principal
+                                        -	Hallar el promedio de los pares que están encima de la diagonal principal y de los impares de la diagonal secundaria
+                                        -	Llenar la diagonal principal con el primo menor de la matriz y la diagonal secundaria con el Fibonacci mayor.
+                                        -	Llenar el contorno de la matriz con el par mayor de la matriz y la parte interna con el menor de los impares de la matriz.
+
+                                        18.	Se tienen dos matrices con datos numéricos y se solicita;
+                                        -	Formar un vector con los elementos comunes de las dos matrices sin repetidos
+                                        -	Formar un vector con los primos comunes de las dos matrices sin repetidos
+                                        -	Formar un vector con los primos no comunes de las dos matrices sin repetidos
+
+                                        19.	Se tiene una matriz con datos numéricos repetidos, formar un vector con aquellos contadores de datos que se repiten y que sean números Fibonacci, sin repetidos
+                                            """))      
+        if respuesta_taller_3 == 1:
+            
+    if respuesta == 4:
         respuesta_evaluacion_1 = int(input("""Escoja un punto
+                                           
+                                        UNIVERSIDAD DE NARIÑO
+                                        FACULTAD DE INGENIERIA
+                                        INGENIERÍA DE SISTEMAS
+                                        PROGRAMACION DE COMPUTADORES
+                                        EVALUACIÓN 1  24%
+                                           
                                            1.   Se tiene una cantidad de números dada, determinar el primo mayor, el Fibonacci menor,
                                            el par menor y realizar la multiplicación de ellos con sumas.25%
                                            2.   Se tiene una cantidad de números dada donde hay varios números que se repiten.
@@ -1112,13 +1202,229 @@ def menu_inicio():
                                            que están entre el mayor y el menor de estos Fibonacci. 25%"""))
         if respuesta_evaluacion_1 == 1:
             def evaluacion_1_punto_1():
-                
+                cantidad=int(input("Cantidad de numeros->"))
+                contador=1
+                primos=0
+                fibonaccis=0
+                pares=0
+                while contador<=cantidad:
+                    num=int(input("Ingrese el número->"))
+                    condicion=1
+                    divisores=0
+                    while condicion<=num:
+                        if num & condicion == 0:
+                            divisores+=1
+                        condicion+=1
+                    if divisores==2:
+                        primos+=1
+                        if primos==1:
+                            primo_mayor=num
+                        else:
+                            if num>primo_mayor:
+                                primo_mayor=num
+                    num1=0
+                    num2=1
+                    secuencia=0
+                    while secuencia<=num:
+                        secuencia = num1 + num2
+                        num1=num2
+                        num2=secuencia
+                        if secuencia == num:
+                            fibonaccis += 1
+                            if fibonaccis == 1:
+                                fibonacci_menor=num
+                            else:
+                                if num < fibonacci_menor:
+                                    fibonacci_menor=num
+                    if num % 2==0:
+                        pares+=1
+                        if pares == 1:
+                            par_menor=num
+                        else:
+                            if num<par_menor:
+                                par_menor=num
+                    contador+=1
+                    
+                #realizar la multiplicacion de ellos con sumas
+                    
+                suma=0
+                condicion=1
+                suma2=0
+                while condicion<=par_menor:
+                    suma += fibonacci_menor
+                    condicion+=1
+                condicion=1
+                resultado=0
+                while condicion<=primo_mayor:
+                    suma2+=suma
+                    condicion+=1
+                resultado=suma2
+                print("La multiplicación con sumas es: ", resultado)
             evaluacion_1_punto_1()
         if respuesta_evaluacion_1 == 2:
             def evaluacion_1_punto_2():
-                
+                cantidad = int(input("Ingrese la cantidad de números: "))
+                contador = 1
+                repeticiones = 0
+                fibonaccis = 0
+                segundo = 0
+
+                while contador <= cantidad:
+                    num = int(input("Ingrese un número: "))
+                    num1 = 0
+                    num2 = 1
+                    secuencia = 0
+                    
+                    while secuencia <= num:
+                        secuencia = num1 + num2
+                        num1 = num2
+                        num2 = secuencia
+                        if secuencia == num:
+                            fibonaccis += 1
+                            if fibonaccis == 2:
+                                segundo = num
+                            else: 
+                                if num == segundo:
+                                    repeticiones += 1
+                    contador += 1
+
+                se_repite = repeticiones + 1
+                condicion = 1
+                divisores = 0
+                while condicion <= se_repite:
+                    if se_repite % condicion == 0:
+                        divisores += 1
+                    condicion += 1
+
+                if divisores == 2:
+                    print("El número de veces en el que se repite el segundo Fibonacci es un número primo.")
+                else:
+                    print("El número de veces en el que se repite el segundo Fibonacci no es un número primo.")
+
             evaluacion_1_punto_2()
-        
-    if respuesta == 4:
+        if respuesta_evaluacion_1 == 3:
+            def evaluacion_1_punto_3():
+                cantidad = int(input("Ingrese la cantidad de triángulos: "))
+                contador = 1
+                equilateros = 0
+                isoceles = 0
+                escalenos = 0
+                suma_equilateros = 0
+                
+                while contador <= cantidad:
+                    lado1 = int(input("Ingrese el lado 1: "))
+                    lado2 = int(input("Ingrese el lado 2: "))
+                    lado3 = int(input("Ingrese el lado 3: "))
+                    
+                    if lado1 == lado2 == lado3:
+                        equilateros += 1
+                        suma_equilateros += lado1 + lado2 + lado3
+                    elif lado1 != lado2 and lado2 != lado3 and lado1 != lado3:
+                        escalenos += 1
+                    else:
+                        isoceles += 1
+                    
+                    contador += 1
+
+                num1 = 0
+                num2 = 1
+                secuencia = 0
+                es_fibonacci = False
+                
+                while secuencia <= suma_equilateros:
+                    secuencia = num1 + num2
+                    num1 = num2
+                    num2 = secuencia
+                    if secuencia == suma_equilateros:
+                        es_fibonacci = True
+                
+                if es_fibonacci:
+                    print("La suma de los perímetros de los triángulos equiláteros es un número Fibonacci.")
+                else:
+                    print("La suma de los perímetros de los triángulos equiláteros no es un número Fibonacci.")
+            evaluacion_1_punto_3()
+        if respuesta_evaluacion_1 == 4:
+            def evaluacion_1_punto_4():
+                cantidad = int(input("Ingrese la cantidad de números: "))
+                contador = 1
+                contador_fibonacci = 0
+                primero = None
+                segundo = None
+                tercero = None
+
+                while contador <= cantidad:
+                    num = int(input("Ingrese un número: "))
+                    num1 = 0
+                    num2 = 1
+                    secuencia = 0
+                    
+                    while secuencia <= num:
+                        secuencia = num1 + num2
+                        num1 = num2
+                        num2 = secuencia
+                        if secuencia == num:
+                            contador_fibonacci += 1
+                            if contador_fibonacci == 1:
+                                primero = num
+                            elif contador_fibonacci == 2:
+                                segundo = num
+                            elif contador_fibonacci == 3:
+                                tercero = num
+                            contador += 1
+
+                mayor = primero
+                menor = primero
+
+                if segundo > mayor:
+                    mayor = segundo
+                if tercero > mayor:
+                    mayor = tercero
+
+                if segundo < menor:
+                    menor = segundo
+                if tercero < menor:
+                    menor = tercero
+
+                contador_pares = 0
+                suma = 0
+                num = menor
+
+                while num <= mayor:
+                    if num % 2 == 0:
+                        suma += num
+                        contador_pares += 1
+                    num += 1
+
+                if contador_pares > 0:
+                    promedio = suma / contador_pares
+                    print("El promedio entre el Fibonacci mayor y el Fibonacci menor, solo de los pares entre estos 2 números es:", promedio)
+                else:
+                    print("No hay números pares entre el Fibonacci mayor y el Fibonacci menor.")
+        evaluacion_1_punto_4()
+    if respuesta == 5:
+        respuesta_evaluacion_2 = int(input("""Escoja un punto
+                                           
+                                        UNIVERSIDAD DE NARIÑO
+                                        FACULTAD DE INGENIERIA
+                                        INGENIERÍA DE SISTEMAS
+                                        PROGRAMACION DE COMPUTADORES
+                                        EVALUACIÓN 2  24%
+                                           
+                                            1.	Se tiene varios datos numéricos repetidos y agrupados  donde el último dato es un -5,
+                                            realizar los siguiente, hallar la multiplicación con sumas, de la cantidad de datos del grupo
+                                            que más se repite por la cantidad de datos del grupo que menos se repite
+
+                                            2.	Se tienen dos vectores con datos numéricos donde hay varios repetidos, formar dos vectores asi:
+                                            Vector 1 con la unión de solo números Fibonacci sin repetidos, sin tener en cuenta aquellos Fibonacci que sean comunes.
+                                            Vector 2 con los múltiplos de 3 comunes, que no sean múltiplos de 5
+
+                                            3.	Se tienen dos vectores con datos numéricos, donde el tercer Fibonacci del vector uno determina
+                                            la cantidad de datos a tener en cuenta en el vector dos, formando dos rangos un rango con la cantidad
+                                            de datos que establece el Fibonacci y el rango dos con el resto, ordenar el primer rango en orden
+                                            ascendente y el segundo en orden descendente 
+                                            """))
+        if respuesta_evaluacion_2 == 1:
+        if respuesta_evaluacion_2 == 2:
+        if respuesta_evaluacion_2 == 3:
 
 menu_inicio()
