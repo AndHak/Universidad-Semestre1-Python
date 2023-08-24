@@ -1424,7 +1424,114 @@ def menu_inicio():
                                             ascendente y el segundo en orden descendente 
                                             """))
         if respuesta_evaluacion_2 == 1:
+            def evaluacion_2_punto_1():
+                repeticiones = {}
+                max_repeticiones = 0
+                min_repeticiones = 0
+                def rompimiento_de_control():
+                    numeros = []
+                    while True:
+                        try:
+                            num = input("Ingrese un número: ")
+                            if num == "-5":
+                                return numeros
+                            else:
+                                numeros.append(int(num))
+                        except ValueError:
+                            print("Ingrese un valor valido")
+                numeros = rompimiento_de_control()
+                for n in numeros:
+                    if n in repeticiones:
+                        repeticiones[n] += 1
+                    else:
+                        repeticiones[n] = 1
+                max_repeticiones = max(repeticiones.values())
+                min_repeticiones = min(repeticiones.values())
+                resultado = 0
+                contador = 1
+                suma = 0
+                while contador <= max_repeticiones:
+                    suma += min_repeticiones
+                    contador += 1
+                resultado = suma
+                print(f"{min_repeticiones}x{max_repeticiones}={resultado}")
+            evaluacion_2_punto_1()
         if respuesta_evaluacion_2 == 2:
+            def evaluacion_2_punto_2():
+                import random
+                numeros1 = []
+                numeros2 = []
+                for n in range(20):
+                    num = random.randint(1, 35)
+                    numeros1.append(num)
+                for n in range(20):
+                    num = random.randint(1, 35)
+                    numeros2.append(num)
+                fibonaccis = []
+                print(numeros1)
+                print(numeros2)
+                for n in numeros1 + numeros2:
+                    num1 = 0
+                    num2 = 1
+                    secuencia = 0
+                    while secuencia <= n:
+                        secuencia = num1 + num2
+                        num1 = num2
+                        num2 = secuencia
+                        if secuencia == n and ((n in numeros1 and n not in numeros2) or (n in numeros2 and n not in numeros1)):
+                            fibonaccis.append(n)
+                vector1 = []
+                for n in fibonaccis:
+                    if n not in vector1:
+                        vector1.append(n)
+                vector2 = []
+                for n in numeros1 + numeros2:
+                    if n % 3 == 0 and n % 5 != 0 and ((n in numeros1 and n not in numeros2) or (n in numeros2 and n not in numeros1)):
+                        vector2.append(n)
+                print("Vector 1:", vector1)
+                print("Vector 2:", vector2)
+            evaluacion_2_punto_2()
         if respuesta_evaluacion_2 == 3:
+            def evaluacion_2_punto_3():
+                import random
+                numeros1 = []
+                numeros2 = []
+                for n in range(20):
+                    num = random.randint(1, 35)
+                    numeros1.append(num)
 
+                for n in range(20):
+                    num = random.randint(1, 35)
+                    numeros2.append(num)
+
+                contador_fibonaccis = 0
+                posicion_tercer_fibonacci = 0
+
+                for indice, f in enumerate(numeros1):
+                    num1 = 0
+                    num2 = 1
+                    secuencia = 0
+                    while secuencia <= f:
+                        secuencia = num1 + num2
+                        num1 = num2
+                        num2 = secuencia
+                        if secuencia == f:
+                            contador_fibonaccis += 1
+                            if contador_fibonaccis == 3:
+                                tercer_fibonacci = f
+                                posicion_tercer_fibonacci = indice
+
+                for i in range(posicion_tercer_fibonacci):
+                    for j in range(posicion_tercer_fibonacci):
+                        if numeros2[j] > numeros2[j+1]:
+                            numeros2[j], numeros2[j+1] = numeros2[j+1], numeros2[j]
+
+                for i in range(posicion_tercer_fibonacci, len(numeros2)-1):
+                    for j in range(posicion_tercer_fibonacci, len(numeros2)-1):
+                        if numeros2[j] < numeros2[j+1]:
+                            numeros2[j], numeros2[j+1] = numeros2[j+1], numeros2[j]
+
+                print(numeros2)
+                
+            evaluacion_2_punto_3()
 menu_inicio()
