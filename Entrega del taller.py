@@ -440,6 +440,31 @@ def menu_inicio():
                     print("promedio total de primos y fibonaccis de los numeros ingresados es", promedio_total)
                 taller_1_punto_24()
             if respuesta_taller_1 == 25:
+                def taller_1_punto_25():  
+                    segundo_primo = None
+                    contador_segundo_primo = 0
+                    contador_primos = 0
+
+                    while True:
+                        num = input("Ingresa un número, 'c' para terminar")
+                        if num.lower() == "c":
+                            break
+                        else:
+                            num = int(num)
+                            divisores = 0
+                            condicion = 1
+                            while condicion <= num:
+                                if num % condicion == 0:
+                                    divisores += 1
+                                condicion += 1
+                            if divisores == 2:
+                                contador_primos += 1
+                                if contador_primos == 2:
+                                    segundo_primo = num
+                                elif num == segundo_primo:
+                                    contador_segundo_primo += 1
+                    print(f"El segundo primo ({segundo_primo}) se repitió {contador_segundo_primo} veces más.")
+                taller_1_punto_25()
             if respuesta_taller_1 == 26:
                 def taller_1_punto_26():
                     lado1 = int(input("Ingrese el lado 1 del triángulo: "))
@@ -1668,16 +1693,18 @@ def menu_inicio():
                 taller_3_punto_9()
             if respuesta_taller_3 == 10:
                 def taller_3_punto_10():
+                    #Ordenar las columnas pares ascendentemente y las columnas impares descendentemente
+
                     import random
 
-                    filas = random.randint(5,10)
-                    columnas = random.randint(5,10)
+                    filas = random.randint(5, 10)
+                    columnas = random.randint(5, 10)
                     matriz = []
 
                     for fila in range(filas):
                         fila_actual = []
-                        for columa in range(columnas):
-                            fila_actual.append(random.randint(1,20))
+                        for columna in range(columnas):
+                            fila_actual.append(random.randint(1, 20))
                         matriz.append(fila_actual)
 
                     print("\nMatriz original")
@@ -1688,8 +1715,11 @@ def menu_inicio():
                         if i % 2 == 0:
                             for j in range(filas - 1):
                                 for k in range(j + 1, filas):
-                                    if matriz[j][i+1] > matriz[k][i+1]:
-                                        matriz[j][i+1], matriz[k][i+1] = matriz[k][i+1], matriz[j][i+1]
+                                    if matriz[j][i] > matriz[k][i]:
+                                        matriz[j][i], matriz[k][i] = matriz[k][i], matriz[j][i]
+                        else:
+                            for j in range(filas - 1):
+                                for k in range(j + 1, filas):
                                     if matriz[j][i] < matriz[k][i]:
                                         matriz[j][i], matriz[k][i] = matriz[k][i], matriz[j][i]
 
@@ -1941,19 +1971,660 @@ def menu_inicio():
                 taller_3_punto_13()
             if respuesta_taller_3 == 14:
                 def taller_3_punto_14():
-                    
+                    #14.	Se tienen dos matrices con datos numéricos y se solicita;
+                    #   -	Formar un vector con los elementos comunes de las dos matrices sin repetidos
+                    #   -	Formar un vector con los primos comunes de las dos matrices sin repetidos
+                    #   -	Formar un vector con los primos no comunes de las dos matrices sin repetidos
+
+                    import random
+
+                    matriz1 = []
+                    matriz2 = []
+
+                    for i in range(random.randint(3,5)):
+                        fila_actual = []
+                        for j in range(random.randint(3,5)):
+                            fila_actual.append(random.randint(1,50))
+                        matriz1.append(fila_actual)
+
+                    for i in range(random.randint(3,5)):
+                        fila_actual = []
+                        for j in range(random.randint(3,5)):
+                            fila_actual.append(random.randint(1,50))
+                        matriz2.append(fila_actual)
+
+                    print("\nMatriz 1")
+                    for i in matriz1:
+                        print(" ".join("{:4}".format(num) for num in i))
+
+                    print("\nMatriz 2")
+                    for i in matriz2:
+                        print(" ".join("{:4}".format(num) for num in i))
+
+                    primos_comunes = []
+                    numeros_comunes = []
+                    primos_no_comunes = []
+
+                    def es_primo(numero):
+                        condicion = 1
+                        divisores = 0
+                        while condicion <= numero:
+                            if numero % condicion == 0:
+                                divisores += 1
+                            condicion += 1
+                        if divisores == 2:
+                            return True
+                        return False
+
+                    #    -	Formar un vector con los elementos comunes de las dos matrices sin repetidos y primos comunes
+
+                    for fila in matriz1:
+                        for i in fila:
+                            for fila2 in matriz2:
+                                if i in fila2 and i not in numeros_comunes:
+                                    numeros_comunes.append(i)
+                            if es_primo(i):     
+                                for fila2 in matriz2:
+                                    if i in fila2 and i not in primos_comunes:
+                                        primos_comunes.append(i)
+
+                    # Formar un vector con los primos no comunes de las dos matrices sin repetidos
+
+                    for fila in matriz1:
+                        for i in fila:
+                            if es_primo(i):
+                                primo_no_comun = True
+                                for fila2 in matriz2:
+                                    if i in fila2:
+                                        primo_no_comun = False
+                                        break
+                                if primo_no_comun and i not in primos_no_comunes:
+                                    primos_no_comunes.append(i)
+
+                    for fila2 in matriz2:
+                        for j in fila2:
+                            if es_primo(j):
+                                primo_no_comun = True
+                                for fila in matriz1:
+                                    if j in fila:
+                                        primo_no_comun = False
+                                        break
+                                if primo_no_comun and j not in primos_no_comunes:
+                                    primos_no_comunes.append(j)
+
+                    print(f"\nNúmeros comunes en las dos matrices: {numeros_comunes}")
+                    print(f"Primos comunes en las dos matricez: {primos_comunes}")
+                    print(f"Primos no comunes en ambas matrices: {primos_no_comunes}")
+
                 taller_3_punto_14()
             if respuesta_taller_3 == 15:
                 def taller_3_punto_15():
+                    import random
+                    matriz = []
+                    dimensiones = random.randint(5,10)
+
+                    for fila in range(dimensiones):
+                        fila_actual = []
+                        for columna in range(dimensiones):
+                            fila_actual.append(random.randint(1,50))
+                        matriz.append(fila_actual)
+
+                    for fila in matriz:
+                        print(" ".join("{:4}".format(n) for n in fila))
+
+                    def es_fibonacci(numero):
+                        num1 = 0
+                        num2 = 1
+                        secuencia = 0
+                        while secuencia <= numero:
+                            secuencia = num1 + num2
+                            num1 = num2
+                            num2 = secuencia
+                            if secuencia == numero:
+                                return True
+                        return False
+
+                    print("")
+
+                    def contar_repeticiones(matriz):
+                        repeticiones = {}
+                        for fila in range(dimensiones):
+                            for numero in matriz[fila]:
+                                if numero in repeticiones:
+                                    repeticiones[numero] += 1
+                                else:
+                                    repeticiones[numero] = 1
+                        return repeticiones
+                    matriz = contar_repeticiones(matriz)
+                    contadores_fibonaccis = []
+                    for numero, repeticiones in matriz.items():
+                        if es_fibonacci(numero):
+                            if repeticiones > 1 and repeticiones not in contadores_fibonaccis:
+                                contadores_fibonaccis.append(repeticiones)
+                            print(f"Numero: {numero}  Repeticiones:  {repeticiones}")
+
+                    print(f"\nContadores de numeros fibonacci que se repiten en la matriz\n {contadores_fibonaccis}")
+
                 taller_3_punto_15()
             if respuesta_taller_3 == 16:
                 def taller_3_punto_16():
+                    import random
+                    matriz = []
+                    dimensiones = random.randint(5,10)
+
+                    for fila in range(dimensiones):
+                        fila_actual = []
+                        for columna in range(dimensiones):
+                            fila_actual.append(random.randint(1,50))
+                        matriz.append(fila_actual)
+
+                    print("\nMatriz Original")
+                    for fila in matriz:
+                        print(" ".join("{:4}".format(n) for n in fila))
+
+                    for i in range(dimensiones):
+                        for j in range(dimensiones):
+                            if i == 0:
+                                matriz[j][i], matriz[j][-i-1] = matriz[j][-i-1], matriz[j][i]
+
+                    print("\nCambiar primera con ultima columna")
+                    for fila in matriz:
+                        print(" ".join("{:4}".format(n) for n in fila))
+                    print("")
+                    contador_mayor_menor = 0
+                    for i in range(dimensiones):
+                        promedio_columna = 0
+                        suma_columna = 0
+                        contador_columna = 0
+                        for j in range(dimensiones):
+                            suma_columna += matriz[j][i]
+                            contador_columna += 1
+                            contador_mayor_menor += 1
+                            if contador_mayor_menor == 1:
+                                numero_mayor = matriz[j][i]
+                                numero_menor = matriz[j][i]
+                            else:
+                                if numero_mayor < matriz[j][i]:
+                                    numero_mayor = matriz[j][i]
+                                if numero_menor > matriz[j][i]:
+                                    numero_menor = matriz[j][i]
+                        promedio_columna = suma_columna/contador_columna
+                        print(f"Promedio de la columna {i+1}: {promedio_columna:.2f}")
+                    print(f"\nNumero mayor: {numero_mayor}  Numero menor: {numero_menor}")
+
+                    #-	Ordenar las filas pares ascendentemente y las filas impares descendentemente
+
+                    for i in range(dimensiones):
+                        if i % 2 == 0 and i < dimensiones - 1:
+                            for j in range(dimensiones - 1):
+                                for k in range(j + 1, dimensiones):
+                                    if matriz[i][j] < matriz[i][k]:
+                                        matriz[i][j], matriz[i][k] = matriz[i][k], matriz[i][j]
+                        else:
+                            for j in range(dimensiones - 1):
+                                for k in range(j + 1, dimensiones):
+                                    if matriz[i][j] > matriz[i][k]:
+                                        matriz[i][j], matriz[i][k] = matriz[i][k], matriz[i][j]
+
+                    print("\nFilas pares e impares ordenadas")
+                    for fila in matriz:
+                        print(" ".join("{:4}".format(n) for n in fila))
+
+                    #-	Ordenar la matriz descendentemente
+
+                    for i in range(dimensiones * dimensiones):
+                        for j in range(dimensiones * dimensiones - i - 1):
+                            fila_actual = j // dimensiones
+                            columna_actual = j % dimensiones
+                            siguiente_fila = (j+1) // dimensiones
+                            siguiente_columna = (j+1) % dimensiones
+                            if matriz[fila_actual][columna_actual] > matriz[siguiente_fila][siguiente_columna]:
+                                matriz[fila_actual][columna_actual], matriz[siguiente_fila][siguiente_columna] = matriz[siguiente_fila][siguiente_columna], matriz[fila_actual][columna_actual]
+
+                    print("\nMatriz ordenada ascendentemente")
+                    for fila in matriz:
+                        print(" ".join("{:4}".format(n) for n in fila))
+
+                    #-	Intercambiar las filas de la matriz de acuerdo al orden ascendente de los promedios de cada fila
+
+                    promedios_fila = []
+                    for i in range(dimensiones):
+                        suma_fila = 0
+                        contador_fila = 0
+                        promedio_fila = 0
+                        for j in range(dimensiones):
+                            suma_fila += matriz[i][j]
+                            contador_fila += 1
+                        promedio_fila = suma_fila/contador_fila
+                        promedios_fila.append(promedio_fila)
+
+                    for i in range(len(promedios_fila)):
+                        for j in range(len(promedios_fila)- i - 1):
+                            if promedios_fila[j] < promedios_fila[j+1]:
+                                promedios_fila[j], promedios_fila[j+1] = promedios_fila[j+1], promedios_fila[j]
+                                matriz[j], matriz[j+1] = matriz[j+1], matriz[j]
+
+                    print("\nMatriz ordenada con promedios")
+                    for i, fila in enumerate(matriz):
+                        print(" ".join("{:4}".format(n) for n in fila),f"  Promedio fila {i+1}: {promedios_fila[i]:.2f}")
+
+                    #-	Intercambiar las filas donde se encuentre el mayor y el menor de la matriz
+
+                    contador_mayor_menor = 0
+                    for i, fila in enumerate(matriz):
+                        for numero in fila:
+                            contador_mayor_menor += 1
+                            if contador_mayor_menor == 1:
+                                numero_mayor = numero
+                                posicion_numero_mayor = i
+                                numero_menor = numero
+                                posicion_numero_menor = i
+                            else:
+                                if numero_mayor < numero:
+                                    numero_mayor = numero
+                                    posicion_numero_mayor = i
+                                if numero_menor > numero:
+                                    numero_menor = numero
+                                    posicion_numero_menor = i
+
+                    matriz[posicion_numero_mayor], matriz[posicion_numero_menor] = matriz[posicion_numero_menor], matriz[posicion_numero_mayor]
+
+                    print("\nMatriz con filas numero mayor y menor cambiadas")
+                    for fila in matriz:
+                        print(" ".join("{:4}".format(n) for n in fila))
+
+                    #-	Intercambiar la fila donde se encuentre el Fibonacci 2 con la fila donde se encuentra el  Fibonacci 4.
+
+                    def es_fibonacci(numero):
+                        num1 = 0
+                        num2 = 1
+                        secuencia = 0
+                        while secuencia <= numero:
+                            secuencia = num1 + num2
+                            num1 = num2
+                            num2 = secuencia
+                            if secuencia == numero:
+                                return True
+                        return False
+
+                    fibonacci_mayor = 0
+                    fibonacci_menor = float("inf")
+                    for i, fila in enumerate(matriz):
+                        for numero in fila:
+                            if es_fibonacci(numero):
+                                if numero > fibonacci_mayor:
+                                    fibonacci_mayor = numero
+                                    posicion_fibonacci_mayor = i
+                                if numero < fibonacci_menor:
+                                    fibonacci_menor = numero
+                                    posicion_fibonacci_menor = i
+
+                    matriz[posicion_fibonacci_mayor], matriz[posicion_fibonacci_menor] = matriz[posicion_fibonacci_menor], matriz[posicion_fibonacci_mayor]
+
+                    print(f"\nCon fila fibonacci mayor: {fibonacci_mayor} y menor: {fibonacci_menor} cambiadas")
+                    for fila in matriz:
+                        print(" ".join("{:4}".format(n) for n in fila))
+
+                    #-	Intercambiar las filas donde se encuentre el primo mayor y el Fibonacci menor
+
+                    def es_primo(numero):
+                        condicion = 1
+                        divisores = 0
+                        while condicion <= numero:
+                            if numero % condicion == 0:
+                                divisores += 1
+                            condicion += 1
+                        if divisores == 2:
+                            return True
+                        return False
+
+                    primo_mayor = 0
+                    fibonacci_menor = float("inf")
+
+                    for i, fila in enumerate(matriz):
+                        for numero in fila:
+                            if es_primo(numero):
+                                if numero > primo_mayor:
+                                    primo_mayor = numero
+                                    posicion_primo_mayor = i
+                            if es_fibonacci(numero):
+                                if numero < fibonacci_menor:
+                                    fibonacci_menor = numero
+                                    posicion_fibonacci_menor = i
+
+                    matriz[posicion_fibonacci_menor], matriz[posicion_primo_mayor] = matriz[posicion_primo_mayor], matriz[posicion_fibonacci_menor]
+
+                    print(f"\nCon fila fibonacci menor: {fibonacci_menor} con primo mayor: {primo_mayor} cambiadas")
+                    for fila in matriz:
+                        print(" ".join("{:4}".format(n) for n in fila))
+
+                    #-	Determinar si el primo 2 y el primo 4 según el recorrido por filas de la matriz, son consecutivos, es decir, no hay un número primo entre los dos
+
+                    contador_primos = 0
+                    for i in range(dimensiones):
+                        for j in range(dimensiones):
+                            if es_primo(matriz[i][j]):
+                                contador_primos += 1
+                                if contador_primos == 2:
+                                    segundo_primo = matriz[i][j]
+                                if contador_primos == 4:
+                                    cuarto_primo = matriz[i][j]
+                                    break
+
+                    if segundo_primo < cuarto_primo:
+                        es_consecutivo = True
+                        contador = segundo_primo + 1
+                        while contador < cuarto_primo:
+                            condicion = 1
+                            divisores = 0
+                            while condicion <= contador:
+                                if contador % condicion == 0:
+                                    divisores += 1
+                                condicion += 1
+                            if divisores == 2:
+                                es_consecutivo = False
+                                break
+                            contador += 1
+                        if es_consecutivo:
+                            print(f"El primo: {cuarto_primo} si es consecutivo del segundo primo: {segundo_primo}")
+                    else:
+                        print(f"El primo: {cuarto_primo} no es consecutivo del segundo primo: {segundo_primo}")
+
                 taller_3_punto_16()
+            if respuesta_taller_3 == 17:
+                def taller_3_punto_17():
+                    #17.	Se tiene una matriz cuadrada de orden N realizar lo siguiente
+                    #-	Hallar el promedio de la diagonal principal y el promedio de la diagonal secundaria
+                    #-	Ordenar ascendentemente la diagonal principal
+                    #-	Hallar el promedio de los pares que están encima de la diagonal principal y de los impares de la diagonal secundaria
+                    #-	Llenar la diagonal principal con el primo menor de la matriz y la diagonal secundaria con el Fibonacci mayor.
+                    #-	Llenar el contorno de la matriz con el par mayor de la matriz y la parte interna con el menor de los impares de la matriz.
 
+                    import random
 
+                    matriz = []
+                    dimensiones = random.randint(5,10)
 
+                    for i in range(dimensiones):
+                        fila_actual = []
+                        for j in range(dimensiones):
+                            fila_actual.append(random.randint(1,100))
+                        matriz.append(fila_actual)
 
+                    def mostrar_matriz(matriz):
+                        for fila in matriz:
+                            print(" ".join("{:4}".format(n) for n in fila))
 
+                    print("\nMatriz original")
+                    mostrar_matriz(matriz)
+
+                    #-	Hallar el promedio de la diagonal principal y el promedio de la diagonal secundaria
+
+                    suma_diagonal_principal = 0
+                    contador_diagonal_princiapal = 0
+                    promedio_diagonal_principal = 0
+                    suma_diagonal_secundaria = 0
+                    contador_diagonal_secundaria = 0
+                    promedio_diagonal_secundaria = 0
+
+                    for i in range(dimensiones):
+                        suma_diagonal_principal += matriz[i][i]
+                        contador_diagonal_princiapal += 1
+                        suma_diagonal_secundaria += matriz[i][-i-1]
+                        contador_diagonal_secundaria += 1
+
+                    promedio_diagonal_principal = suma_diagonal_principal/contador_diagonal_princiapal
+                    promedio_diagonal_secundaria = suma_diagonal_secundaria/contador_diagonal_secundaria
+
+                    print(f"\nPromedio diagonal principal: {promedio_diagonal_principal:.2f}\nPromedio diagonal secundaria: {promedio_diagonal_secundaria:.2f}")
+
+                    for i in range(dimensiones - 1):
+                        for j in range(i+1, dimensiones):
+                            if matriz[i][i] > matriz[j][j]:
+                                matriz[i][i], matriz[j][j] = matriz[j][j], matriz[i][i]
+
+                    print("\nCon diagonal principal ordenada ascendentemente")
+                    mostrar_matriz(matriz)
+
+                    #-	Hallar el promedio de los pares que están encima de la diagonal principal y de los impares de la diagonal secundaria
+
+                    suma_pares_up_diagonal_principal = 0
+                    contador_pares_up_diagonal_princiapal = 0
+                    promedio_pares_up_diagonal_principal = 0
+                    promedio_impares_diagonal_secundaria = 0
+                    contador_impares_diagonal_secundaria = 0
+                    suma_impares_diagonal_secundaria = 0
+
+                    def es_par(numero):
+                        if numero % 2 == 0:
+                            return True
+                        return False
+                    def es_impar(numero):
+                        if numero % 2 != 0:
+                            return True
+                        return False
+
+                    for i in range(dimensiones):
+                        if i < dimensiones - 1:
+                            if es_par(matriz[i][i+1]):
+                                suma_pares_up_diagonal_principal += matriz[i][i+1]
+                                contador_pares_up_diagonal_princiapal += 1
+                        if es_impar(matriz[i][-i-1]):
+                            suma_impares_diagonal_secundaria += matriz[i][-i-1]
+                            contador_impares_diagonal_secundaria += 1
+                    if suma_pares_up_diagonal_principal == 0:
+                        print("No hay numeros pares en la diagonal superior de la diagonal principal")
+                    else:
+                        promedio_pares_up_diagonal_principal = suma_pares_up_diagonal_principal/contador_pares_up_diagonal_princiapal
+                        print(f"\nPromedio pares up diagonal 1: {promedio_pares_up_diagonal_principal:.2f}")
+                    if suma_impares_diagonal_secundaria == 0:
+                        print("No hay numeros impares en la diagonal secundaria")
+                    else:
+                        promedio_impares_diagonal_secundaria = suma_impares_diagonal_secundaria/contador_impares_diagonal_secundaria
+                        print(f"Promedio impares diagonal 2: {promedio_impares_diagonal_secundaria:.2f}")
+
+                    def es_primo(numero):
+                        divisores = 0
+                        condicion = 1
+                        while condicion <= numero:
+                            if numero % condicion == 0:
+                                divisores += 1
+                            condicion += 1
+                        if divisores == 2:
+                            return True
+                        return False
+
+                    def es_fibonacci(numero):
+                        num1 = 0
+                        num2 = 1
+                        secuencia = 0
+                        while secuencia <= numero:
+                            secuencia = num1 + num2
+                            num1 = num2
+                            num2 = secuencia
+                            if secuencia == numero:
+                                return True
+                        return False
+
+                    fibonacci_mayor = 0
+                    primo_menor = float("inf")
+                    par_mayor = 0
+                    impar_menor = float("inf")
+
+                    for fila in matriz:
+                        for numero in fila:
+                            if es_fibonacci(numero):
+                                if numero > fibonacci_mayor:
+                                    fibonacci_mayor = numero
+                            if es_primo(numero):
+                                if numero < primo_menor:
+                                    primo_menor = numero
+                            if es_par(numero):
+                                if numero > par_mayor:
+                                    par_mayor = numero
+                            if es_impar(numero):
+                                if numero < impar_menor:
+                                    impar_menor = numero
+
+                    #-	Llenar la diagonal principal con el primo menor de la matriz y la diagonal secundaria con el Fibonacci mayor.
+
+                    for i in range(dimensiones):
+                        matriz[i][i] = primo_menor
+                        matriz[i][-i-1] = fibonacci_mayor
+
+                    print(f"\nMatriz con diagonal principal primo menor: {primo_menor}")
+                    print(f"y diagonal secundaria fibonacci mayor: {fibonacci_mayor}")
+                    mostrar_matriz(matriz)
+
+                    #-	Llenar el contorno de la matriz con el par mayor de la matriz y la parte interna con el menor de los impares de la matriz.
+
+                    for i in range(dimensiones):
+                        for j in range(dimensiones):
+                            if i == 0 or i == dimensiones - 1 or j == 0 or j == dimensiones - 1:
+                                matriz[i][j] = par_mayor
+                            else:
+                                matriz[i][j] = impar_menor
+
+                    print(f"\nMatriz con contorno par mayor: {par_mayor}")
+                    print(f"y su interior con el impar menor: {impar_menor}")
+                    mostrar_matriz(matriz)
+                taller_3_punto_17()
+            if respuesta_taller_3 == 18:
+                def taller_3_punto_18():
+                    #18.	Se tienen dos matrices con datos numéricos y se solicita;
+                    #-	Formar un vector con los elementos comunes de las dos matrices sin repetidos
+                    #-	Formar un vector con los primos comunes de las dos matrices sin repetidos
+                    #-	Formar un vector con los primos no comunes de las dos matrices sin repetidos
+
+                    import random
+                    matriz1 = []
+                    matriz2 = []
+
+                    def llenar_matriz(matriz):
+                        dimensiones = random.randint(5,6)
+                        for fila in range(dimensiones):
+                            fila_actual = []
+                            for columna in range(dimensiones):
+                                fila_actual.append(random.randint(1,50))
+                            matriz.append(fila_actual)
+
+                    def mostrar_matriz(matriz):
+                        for fila in matriz:
+                            print(" ".join("{:4}".format(n) for n in fila))
+
+                    llenar_matriz(matriz1)
+                    llenar_matriz(matriz2)
+                    print("\nMatriz 1")
+                    mostrar_matriz(matriz1)
+                    print("\nMatriz 2")
+                    mostrar_matriz(matriz2)
+
+                    def es_primo(numero):
+                        condicion = 1
+                        divisores = 0
+                        while condicion <= numero:
+                            if numero % condicion == 0:
+                                divisores += 1
+                            condicion += 1
+                        if divisores == 2:
+                            return True
+                        return False
+
+                    numeros_comunes = []
+                    primos_comunes = []
+
+                    for fila in matriz1:
+                        for numero in fila:
+                            if es_primo(numero):
+                                for fila2 in matriz2:
+                                    if numero in fila and numero not in primos_comunes:
+                                        primos_comunes.append(numero)
+                            for fila2 in matriz2:
+                                if numero in fila and numero not in numeros_comunes:
+                                    numeros_comunes.append(numero)
+
+                    print(f"\nNumeros comunes: {sorted(numeros_comunes)}")
+                    print(f"Primos comunes: {sorted(primos_comunes)}")
+
+                    primos_no_comunes = []
+
+                    for fila in matriz1:
+                        for numero in fila:
+                            if es_primo(numero):
+                                es_comun = True
+                                for fila2 in matriz2:
+                                    if numero in fila2:
+                                        es_comun = False
+                                        break
+                                if es_comun and numero not in primos_no_comunes:
+                                    primos_no_comunes.append(numero)
+                    for fila2 in matriz2:
+                        for numero in fila2:
+                            if es_primo(numero):
+                                es_comun = True
+                                for fila in matriz1:
+                                    if numero in fila:
+                                        es_comun = False
+                                        break
+                                if es_comun and numero not in primos_no_comunes:
+                                    primos_no_comunes.append(numero)
+
+                    print(f"Primos no comunes en las matricez: {sorted(primos_no_comunes)}")
+                taller_3_punto_18()
+            if respuesta_taller_3 == 19:
+                def taller_3_punto_19():
+                    #19.	Se tiene una matriz con datos numéricos repetidos,
+                    # formar un vector con aquellos contadores de datos que se repiten y que sean números Fibonacci, sin repetidos
+
+                    import random
+
+                    matriz = []
+                    dimensiones = random.randint(5,10)
+
+                    for i in range(dimensiones):
+                        fila_actual = []
+                        for j in range(dimensiones):
+                            fila_actual.append(random.randint(1,50))
+                        matriz.append(fila_actual)
+
+                    print("\nMatriz Original")
+                    for fila in matriz:
+                        print(" ".join("{:4}".format(n) for n in fila))
+
+                    def es_fibonacci(numero):
+                        num1 = 0
+                        num2 = 1
+                        secuencia = 0
+                        while secuencia <= numero:
+                            secuencia = num1 + num2
+                            num1 = num2
+                            num2 = secuencia
+                            if secuencia == numero:
+                                return True
+                        return False
+                    todoscontadores = []
+                    contadores = []
+                    repeticiones = {}
+                    print("")
+                    for fila in matriz:
+                        for numero in fila:
+                            if es_fibonacci(numero):
+                                if numero in repeticiones:
+                                    repeticiones[numero] += 1
+                                else:
+                                    repeticiones[numero] = 1
+
+                    for numero, repeticion in repeticiones.items():
+                        print(f"Numero: {numero}  Repeticiones: {repeticion}")
+                        if repeticion > 1:
+                            todoscontadores.append(repeticion)
+                        if repeticion > 1 and repeticion not in contadores:
+                            contadores.append(repeticion)
+
+                    print(f"\nTodos los contadores de fibonaccis que se repiten: {todoscontadores}")
+                    print(f"Contadores de fibonaccis que se repiten sin repetidos: {contadores}")
+
+                taller_3_punto_19()
         if respuesta == 4:
             respuesta_evaluacion_1 = int(input("""Escoja un punto
                                             
