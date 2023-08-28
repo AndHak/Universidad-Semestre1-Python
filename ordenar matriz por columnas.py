@@ -14,7 +14,8 @@ for i in range(dimensiones):
 print("\nMatriz original")
 for i in matriz:
     print(" ".join("{:4}".format(j) for j in i))
-
+    
+#ordenar
 for i in range(dimensiones):
     for j in range(dimensiones - 1):
         for k in range(j + 1, dimensiones):

@@ -14,6 +14,7 @@ print("\nMatriz original")
 for fila in matriz:
     print(" ".join("{:4}".format(num) for num in fila))
 
+#ordenar
 for i in range(filas):
     for j in range(columnas - 1):
         for k in range(j+1, columnas):
