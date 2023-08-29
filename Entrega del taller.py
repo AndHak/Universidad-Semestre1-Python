@@ -6,7 +6,8 @@ def menu_inicio():
             3. Taller 3                
             4. Evaluación 1
             5. Evaluación 2
-            6. Salir"""))
+            6. Salir
+                              :    """))
         if respuesta == 1:
             respuesta_taller_1 = int(input("""Qué Punto desea ver a continuación:  
                                         1. Área figuras geometricas y mayor y menor 
@@ -34,7 +35,9 @@ def menu_inicio():
                                         23. Promedio factorial impares entre primo mayor y fibonacci menor
                                         24. Encontrar primo y fibonacci a la vez
                                         25. Veces que se repite el segundo primo
-                                        26. Determinar triangulo equilatero, escaleno o isóceles"""))
+                                        26. Determinar triangulo equilatero, escaleno o isóceles
+                                           
+                                           :   """))
             if respuesta_taller_1 == 1:
                 #-	Realizar un programa que calcule el área de un triángulo, un rectángulo y un cuadrado, y muestre el área mayor y el área menor.
                 def taller_1_punto_1():
@@ -330,14 +333,383 @@ def menu_inicio():
                         print("No se ingresaron números en la secuencia de Fibonacci.")
                 taller_1_punto_9()
             if respuesta_taller_1 == 10:
+                def taller_1_punto_10():
+                    cantidad = int(input("Digite la cantidad de datos: "))
+                    sum_factoriales_fibonacci = 0
+                    contador_fibonacci = 0
+
+                    def factorial(n):
+                        if n == 0 or n == 1:
+                            return 1
+                        else:
+                            return n * factorial(n - 1)
+
+                    a = 0
+                    b = 1
+
+                    for i in range(cantidad):
+                        num = int(input("Digite un dato: "))
+                        
+                        p = 0
+                        cdivisores = 0
+                        while p <= num:
+                            if num % p == 0:
+                                cdivisores += 1
+                            p += 1
+                            
+                        if cdivisores == 2:
+                            while b <= num:
+                                if b == num:
+                                    contador_fibonacci += 1
+                                    sum_factoriales_fibonacci += factorial(num)
+                                c = a + b
+                                a = b
+                                b = c
+
+                    if contador_fibonacci == 0:
+                        print("No se encontraron números Fibonacci en los datos ingresados.")
+                    else:
+                        print(f"La suma de los factoriales de los números Fibonacci es: {sum_factoriales_fibonacci}")
+
+                taller_1_punto_10()
             if respuesta_taller_1 == 11:
+                def taller_1_punto_11():
+                    cantidad_datos=int(input("digite la cantidad de datos->"))
+                    cp=0
+                    suma_factorial_primos=0
+                    for i in range(cantidad_datos):
+                        num=int(input("Digite dato->"))
+                        r=2
+                        cd=0
+                        while r < num:
+                            if num % r==0:
+                                cd+=1
+                            r+=1  
+                        if cd==0:
+                            primo=num
+                            cp+=1
+                            z=1
+                            for j in range(1, num + 1):
+                                z *= j
+                            suma_factorial_primos += z
+                            
+                    promedio=suma_factorial_primos/cp if cp > 0 else 0
+                    if cp>0:
+                        print("el promedio de los factoriales de los primos es", promedio)
+                    else:
+                        print("no hay primos")
+                taller_1_punto_11()
             if respuesta_taller_1 == 12:
+                def taller_1_punto_12():
+                    cd = int(input("Digite la cantidad de datos"))
+                    sum_factorial_primos = 0
+                    sum_factorial_fib = 0
+                    cp = 0
+                    cf = 0
+
+                    for i in range(cd):
+                        num = int(input("digite el dato->"))
+                        div = 0
+                        con = 1
+                        
+                        while con <= num:
+                            if num % con == 0:
+                                div += 1
+                            con += 1
+                            
+                        if div == 2:
+                            cp += 1
+                            z = 1
+                            temp_num = num
+                            while temp_num > 0:
+                                z *= temp_num
+                                temp_num -= 1
+                            sum_factorial_primos += z
+                        else:
+                            a = 0
+                            b = 1
+                            c = 0
+                            while c < num:
+                                c = a + b
+                                a = b
+                                b = c
+                            if c == num:
+                                cf += 1
+                                s = 1
+                                temp_num = num
+                                while temp_num > 0:
+                                    s *= temp_num
+                                    temp_num -= 1
+                                sum_factorial_fib += s
+
+                    if cp > 0:
+                        prom_primos = sum_factorial_primos / cp
+                    else:
+                        prom_primos = 0
+                        print("No hay numeros primos")
+                        
+                    if cf > 0:
+                        prom_fib = sum_factorial_fib / cf
+                    else:
+                        prom_fib = 0
+                        print("No hay numeros fibonaccis")
+
+                    if prom_fib > 0 and prom_primos > 0:
+                        if prom_fib > prom_primos:
+                            print(f"El promedio de los factoriales de los números Fibonacci es {prom_fib}, siendo mayor que el promedio de los factoriales de los números primos que es {prom_primos}")
+                        else:
+                            print(f"El promedio de los factoriales de los números primos es {prom_primos}, siendo mayor que el promedio de los factoriales de los números Fibonacci que es {prom_fib}")
+
+                taller_1_punto_12()
             if respuesta_taller_1 == 13:
+                def taller_1_punto_13():
+                    #Se tiene una cantidad de números dada donde hay varios primos determinar 
+                    #las tablas de multiplicar que están entre el primo menor y primo mayor.
+                    cantidad=int(input("Digite la cantidad de datos->"))
+                    contadorp=0
+                    pmayor=0
+                    pmenor=0
+                    for r in range(cantidad):
+                        num=int(input("Digite un dato->"))
+                        cdivisores=0
+                        i=1
+                        while i<=num:
+                            if num%i==0:
+                                cdivisores+=1
+                            i+=1
+                        if cdivisores==2:
+                            contadorp+=1
+                            if contadorp==1:
+                                pmenor=num
+                                pmayor=num
+                            else:
+                                if num<pmenor:
+                                    pmenor=num
+                                elif num>pmayor:
+                                    pmayor=num
+                            
+                    if contadorp<2:
+                        print("no hay los suficientes numeros primos")
+                    else:
+                        for p in range(pmenor, pmayor+1):
+                            print(f"Tabla de multiplicar para {p}:")
+                            contador_tablas=1 
+                            while contador_tablas<10:
+                                tabla=p*contador_tablas
+                                print(f"{p} x {contador_tablas} = {tabla}")
+                                contador_tablas+=1
+                taller_1_punto_13()
             if respuesta_taller_1 == 14:
+                def taller_1_punto_14():
+                    #Se tiene una cantidad de números dada donde hay varios números Fibonacci, obtener los Fibonacci 1, 3, 4 
+                    # (de acuerdo al orden de entrada) y mostrar el menor y el mayor de ellos.
+                    cantidad=int(input("Digite la canntidad de datos->"))
+                    contadorf=0
+                    for i in range(cantidad):
+                        num=int(input("digite un dato->"))
+                        a=0
+                        b=1
+                        c=0
+                        while c<num:
+                            c=a+b
+                            a=b
+                            b=c
+                        if c==num:
+                            contadorf+=1
+                            if contadorf==1:
+                                primerf=num
+                            if contadorf==3:
+                                tercerf=num
+                            if contadorf==4:
+                                cuartof=num
+                    if primerf>tercerf:
+                        if primerf>cuartof:
+                            print(f"el mayor fibonacci es el primero=={primerf}")
+                            if tercerf<cuartof:
+                                print(f"el menor fibonacci es el tercero=={tercerf}")
+
+                            else:  
+                                print(f"el menor fibonacci es el cuarto=={cuartof}")  
+                        else:
+                            print(f"el mayor fibonacci es el cuarto=={cuartof}")
+                            if tercerf<primerf:
+                                print(f"el menor fibonacci es el tercero=={tercerf}")
+
+                            else:  
+                                print(f"el menor fibonacci es el primero=={primerf}")
+                    else:
+                        if tercerf>cuartof:
+                            print(f"el mayor fibonacci es el tercero=={tercerf}")
+                            if cuartof<primerf:
+                                print(f"el menor fibonacci es el cuarto=={cuartof}")
+
+                            else:  
+                                print(f"el menor fibonacci es el primero=={primerf}")
+                        else: 
+                            print(f"el mayor fibonacci es el cuarto=={cuartof}")
+                            if tercerf<primerf:
+                                print(f"el menor fibonacci es el tercero=={tercerf}")
+
+                            else:  
+                                print(f"el menor fibonacci es el primero=={primerf}")
+                        
+                taller_1_punto_14()
             if respuesta_taller_1 == 15:
+                def taller_1_punto_15():
+                    #-	Se tiene una cantidad de números dada donde hay varios números Primos, obtener los primos  2, 3, 4  
+                    # (de acuerdo al orden de entrada) y mostrarlos en forma ascendente, sin utilizar condiciones compuestas.
+                    cantidad = int(input("Digite la cantidad de datos, en la cual deben haber minimo 4 primos y por ende la cantidad de numeros debe ser mayor a 4 -> "))
+                    contadorp = 0
+                    segundop = 0
+                    tercerp = 0
+                    cuartop = 0
+
+                    for i in range(cantidad):
+                        num = int(input("Digite un dato -> "))
+                        a = 1
+                        divisores = 0
+                        
+                        while a <= num:
+                            if num % a == 0:
+                                divisores += 1
+                            a += 1
+                        
+                        if divisores == 2:
+                            contadorp += 1
+                            
+                            if contadorp == 2:
+                                segundop = num
+                            elif contadorp == 3:
+                                tercerp = num
+                            elif contadorp == 4:
+                                cuartop = num
+
+                    if segundop > tercerp:
+                        if segundop > cuartop:
+                            print(f"El mayor primo es el segundo -> {segundop}")
+                            
+                            if tercerp < cuartop:
+                                print(f"El primo del medio es el cuarto -> {cuartop}")
+                                print(f"El menor primo es el tercero -> {tercerp}")
+                            else:
+                                print(f"El primo del medio es el tercero -> {tercerp}")
+                                print(f"El menor primo es el cuarto -> {cuartop}")
+                        else:
+                            print(f"El mayor primo es el cuarto -> {cuartop}")
+                            
+                            if tercerp < segundop:
+                                print(f"El primo del medio es el segundo -> {segundop}")
+                                print(f"El menor primo es el tercero -> {tercerp}")
+                            else:
+                                print(f"El primo del medio es el tercero -> {tercerp}")
+                                print(f"El menor primo es el segundo -> {segundop}")
+                    else:
+                        if tercerp > cuartop:
+                            print(f"El mayor primo es el tercero -> {tercerp}")
+                            
+                            if cuartop < segundop:
+                                print(f"El primo del medio es el segundo -> {segundop}")
+                                print(f"El menor primo es el cuarto -> {cuartop}")
+                            else:
+                                print(f"El primo del medio es el cuarto -> {cuartop}")
+                                print(f"El menor primo es el segundo -> {segundop}")
+                        else:
+                            print(f"El mayor primo es el cuarto -> {cuartop}")
+                            
+                            if tercerp < segundop:
+                                print(f"El primo del medio es el segundo -> {segundop}")
+                                print(f"El menor primo es el tercero -> {tercerp}")
+                            else:
+                                print(f"El primo del medio es el tercero -> {tercerp}")
+                                print(f"El menor primo es el segundo -> {segundop}")
+                taller_1_punto_15()
             if respuesta_taller_1 == 16:
+                def taller_1_punto_16():
+                    # Se tiene una cantidad de números dada donde hay varios primos determinar 
+                    # si el primo 2 y el primo 3 de acuerdo al orden de entrada si son consecutivos.
+                    # Son consecutivos si entre los dos no hay otro número primo
+                    cantidad=int(input("Digite la cantidad de datos, debe contener al menos 3 primos"))
+                    primo2=primo3=0
+                    cantidad_primos=0
+                    consecutivo=True
+                    contador=1
+                    while contador<=cantidad:
+                        num=int(input(f"digite el dato{contador}->"))
+                        divisores=0
+                        z=1
+                        while z<num:
+                            if num%z==0:
+                                divisores+=1
+                            z+=1
+                        if divisores==2:
+                            cantidad_primos+=1
+                            if cantidad_primos==2:
+                                primo2=num
+                            elif cantidad_primos==3:
+                                primo3=num
+                        contador+=1
+                    print("segundo primo", primo2)
+                    print("tercer primo", primo3)
+                taller_1_punto_16()
             if respuesta_taller_1 == 17:
+                def taller_1_punto_17():
+                    cantidad = int(input("Digite la cantidad de números: "))
+                    datos = []
+
+                    for i in range(cantidad):
+                        num = int(input("Digite un número: "))
+                        datos.append(num)
+
+                    num_buscado = int(input("Digite el número a buscar: "))
+                    ubicacion = -1
+
+                    for i, num in enumerate(datos):
+                        if num == num_buscado:
+                            ubicacion = i
+                            break
+
+                    if ubicacion != -1:
+                        print(f"El número {num_buscado} se encuentra en la ubicación {ubicacion}.")
+                    else:
+                        print(f"El número {num_buscado} no se encuentra en la lista.")
+                taller_1_punto_17()
             if respuesta_taller_1 == 18:
+                def taller_1_punto_18():
+                    cantidad = int(input("Digite la cantidad de números: "))
+                    pmayor = 0
+                    p_encontrado = False
+                    f_menor = float('inf')
+
+                    for i in range(cantidad):
+                        numero = int(input("Digite un número: "))
+                        
+                        cdivisores = 0
+                        for divisor in range(1, numero + 1):
+                            if numero % divisor == 0:
+                                cdivisores += 1
+                                
+                        if cdivisores == 2:  # Es un número primo
+                            if not p_encontrado or numero > pmayor:
+                                pmayor = numero
+                                p_encontrado = True
+                            
+                        num1 = 0
+                        num2 = 1
+                        secuencia = 0
+                        while secuencia <= numero:
+                            secuencia = num1 + num2
+                            num1 = num2
+                            num2 = secuencia
+                            if secuencia == numero:
+                                f_menor = min(f_menor, numero)
+
+                    if p_encontrado and f_menor != float('inf'):
+                        multiplicacion = pmayor * f_menor
+                        print(f"La multiplicación del primo mayor ({pmayor}) por el Fibonacci menor ({f_menor}) es: {multiplicacion}")
+                    else:
+                        print("No se encontró el primo mayor o el Fibonacci menor.")
+
+                taller_1_punto_18()
             if respuesta_taller_1 == 19:
                 #Se tiene una cantidad de números dada. Encontrar el promedio de los números pares que se encuentran entre el  primo mayor y el Fibonacci menor7
                 def taller_1_punto_19():
@@ -407,8 +779,125 @@ def menu_inicio():
                     print("El resultado de", num1, "elevado a la potencia", num2, "es:", potencia)
                 taller_1_punto_20()
             if respuesta_taller_1 == 21:
+                def taller_1_punto_21():
+                    #Hallar el factorial de un número con sumas
+
+                    num = int(input("Ingrese un número: "))
+                    factorial = 1
+                    contador = 1
+                    suma = 0
+
+                    while contador <= num:
+                        temp = factorial
+                        suma = 0
+                        while temp > 0:
+                            suma += contador
+                            temp -= 1
+                        factorial = suma
+                        contador += 1
+
+                    print("El factorial de", num, "es:", factorial)
+                taller_1_punto_21()
             if respuesta_taller_1 == 22:
+                def taller_1_punto_22():
+                    cantidad = int(input("Digite la cantidad de números: "))
+                    contador_pares = 0
+                    suma_pares = 0
+                    pmayor = 0
+                    p_encontrado = False
+                    f_menor = float('inf')
+
+                    for i in range(cantidad):
+                        numero = int(input("Digite un número: "))
+                        
+                        cdivisores = 0
+                        for divisor in range(1, numero + 1):
+                            if numero % divisor == 0:
+                                cdivisores += 1
+                                
+                        if cdivisores == 2:  # Es un número primo
+                            if not p_encontrado or numero > pmayor:
+                                pmayor = numero
+                                p_encontrado = True
+                            
+                        a = 0
+                        b = 1
+                        while b <= numero:
+                            if b == numero:
+                                f_menor = min(f_menor, numero)
+                            c = a + b
+                            a = b
+                            b = c
+
+                    for num in range(pmayor + 1, f_menor):
+                        if num % 2 == 0:  # Verifica si el número es par
+                            contador_pares += 1
+                            suma_pares += num
+
+                    if contador_pares > 0:
+                        promedio_pares = suma_pares / contador_pares
+                        print(f"El promedio de los números pares entre el primo mayor ({pmayor}) y el Fibonacci menor ({f_menor}) es: {promedio_pares}")
+                    else:
+                        print("No hay números pares entre el primo mayor y el Fibonacci menor.")
+                taller_1_punto_22()
             if respuesta_taller_1 == 23:
+                def taller_1_punto_23():
+                    cantidad = int(input("Digite la cantidad de números: "))
+                    contador_impares = 0
+                    suma_factoriales_impares = 0
+                    pmayor = 0
+                    p_encontrado = False
+                    f_menor = float('inf')
+
+                    def factorial(n):
+                        if n == 0 or n == 1:
+                            return 1
+                        else:
+                            resultado = 1
+                            for i in range(2, n + 1):
+                                resultado *= i
+                            return resultado
+
+                    for i in range(cantidad):
+                        numero = int(input("Digite un número: "))
+                        es_fibonacci = False
+                        
+                        num1 = 0
+                        num2 = 1
+                        secuencia = 0
+                        while secuencia <= numero:
+                            secuencia = num1 + num2
+                            num1 = num2
+                            num2 = secuencia
+                            if secuencia == numero:
+                                es_fibonacci = True
+                        
+                        if es_fibonacci:
+                            if not p_encontrado or numero > pmayor:
+                                pmayor = numero
+                                p_encontrado = True
+                            
+                        es_primo = True
+                        if numero > 1:
+                            for divisor in range(2, numero):
+                                if numero % divisor == 0:
+                                    es_primo = False
+                                    break
+
+                        if es_fibonacci or es_primo:
+                            f_menor = min(f_menor, numero)
+
+                    for num in range(pmayor + 1, f_menor):
+                        if num % 2 != 0:  # Verifica si el número es impar
+                            contador_impares += 1
+                            suma_factoriales_impares += factorial(num)
+
+                    if contador_impares > 0:
+                        promedio_impares = suma_factoriales_impares / contador_impares
+                        print(f"El promedio de los factoriales de los números impares entre el primo mayor ({pmayor}) y el Fibonacci menor ({f_menor}) es: {promedio_impares}")
+                    else:
+                        print("No hay números impares entre el primo mayor y el Fibonacci menor.")
+                taller_1_punto_23()
             if respuesta_taller_1 == 24:
                 #Se tiene una cantidad de números dada. Encontrar el promedio de los números que son Fibonacci y primos a la vez
                 def taller_1_punto_24():
@@ -497,7 +986,9 @@ def menu_inicio():
                                         15. Formar un tercer vector que quede ordenado solo con pares
                                         16. Vector con primos entre fibonacci mayor y menor
                                         17. Promedio multiplos de 3 entre segundo y tercer fibonacci
-                                        18. Segundo, tecer fibonacci y sus posiciones, remplazarlas"""))
+                                        18. Segundo, tecer fibonacci y sus posiciones, remplazarlas
+                                           
+                                           :   """))
             if respuesta_taller_2 == 1:
                 #1.	Se tiene un vector con datos numéricos repetidos, determinar cuál es el primo que más se repite.
                 def taller_2_punto_1():
@@ -1205,7 +1696,8 @@ def menu_inicio():
                                             -	Formar un vector con los primos no comunes de las dos matrices sin repetidos
 
                                             19.	Se tiene una matriz con datos numéricos repetidos, formar un vector con aquellos contadores de datos que se repiten y que sean números Fibonacci, sin repetidos
-                                                """))      
+                                                
+                                                    :   """))      
             if respuesta_taller_3 == 1:
                 def taller_3_punto_1():
                     import random
