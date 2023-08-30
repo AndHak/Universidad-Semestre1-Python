@@ -1,13 +1,29 @@
+from colorama import init, Fore
+import os
+
 def menu_inicio():
     while True:
-        respuesta = int(input("""Escoja un menu:
-            1. Taller 1
-            2. Taller 2
-            3. Taller 3                
-            4. Evaluación 1
-            5. Evaluación 2
-            6. Salir
-                              :    """))
+        print(Fore.LIGHTCYAN_EX + """
+            ╔════════════════════════════════════════╗
+            ║                                        ║
+            ║           Bienvenido al Menú           ║
+            ║                                        ║
+            ╠════════════════════════════════════════╣
+            ║                                        ║
+            ║ Escoja una opción:                     ║
+            ║                                        ║
+            ║ 1. Taller 1                            ║
+            ║ 2. Taller 2                            ║
+            ║ 3. Taller 3                            ║
+            ║ 4. Evaluación 1                        ║
+            ║ 5. Evaluación 2                        ║
+            ║ 6. Salir                               ║
+            ║                                        ║
+            ╚════════════════════════════════════════╝
+        """ + Fore.RESET)
+
+        respuesta = int(input(Fore.YELLOW + "Ingrese su elección: " + Fore.RESET))
+        
         if respuesta == 1:
             respuesta_taller_1 = int(input("""Qué Punto desea ver a continuación:  
                                         1. Área figuras geometricas y mayor y menor 
@@ -37,7 +53,7 @@ def menu_inicio():
                                         25. Veces que se repite el segundo primo
                                         26. Determinar triangulo equilatero, escaleno o isóceles
                                            
-                                           :   """))
+                                        """ + Fore.YELLOW + "Ingrese su elección: " + Fore.RESET))
             if respuesta_taller_1 == 1:
                 #-	Realizar un programa que calcule el área de un triángulo, un rectángulo y un cuadrado, y muestre el área mayor y el área menor.
                 def taller_1_punto_1():
@@ -71,6 +87,8 @@ def menu_inicio():
                     print("El área mayor es:", area_mayor)
                     print("El área menor es:", area_menor)
                 taller_1_punto_1()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 2:
                 # -	Realizar un programa que calcule el área de un triángulo, un rectángulo y un cuadrado, y muestre las áreas en orden ascendente
                 def taller_1_punto_2():
@@ -107,6 +125,8 @@ def menu_inicio():
                                 else:
                                     print(area_cuadrado, area_rectangulo, area_triangulo)
                 taller_1_punto_2()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 3:
                 #3.	Una empresa de servicios públicos desea calcular el valor de una factura de servicio de agua, teniendo en cuenta lo siguiente
                 #Se tiene el código del usuario, consumo mensual en  metros cúbicos, el valor del metro cúbico, el estrato y
@@ -199,6 +219,8 @@ def menu_inicio():
                         except ValueError:
                             print("Respuesta inválida")
                 taller_1_punto_3()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 4:
                 def taller_1_punto_4():
                     num = int(input("ingrese el primer numero"))
@@ -213,6 +235,8 @@ def menu_inicio():
 
                     print("la multiplicacion de", num, "x", num2, "es igual a", suma)
                 taller_1_punto_4()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 5:
                 #-	Determinar si un número es múltiplo de otro sin utilizar el operador residuo.
                 def taller_1_punto_5():
@@ -229,6 +253,8 @@ def menu_inicio():
                     else:
                         print("no es multiplo")
                 taller_1_punto_5()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 6:
                 #-	Determinar si un número es múltiplo de otro sin utilizar el operador residuo.
                 def taller_1_punto_5():
@@ -245,6 +271,8 @@ def menu_inicio():
                     else:
                         print("no es multiplo")
                 taller_1_punto_5()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 7:
                 #7.	Determinar si un número es primo sin utilizar el operador residuo.
                 def taller_1_punto_7():
@@ -264,6 +292,8 @@ def menu_inicio():
                     else:
                         print(num1,"no es primo")
                 taller_1_punto_7()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 8:
                 def taller_1_punto_8():
                     print("tabla de multiplicar entre dos numeros")
@@ -282,6 +312,8 @@ def menu_inicio():
                         num1 = num1 + 1
                         multiplicador = 1
                 taller_1_punto_8()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 9:
                 def taller_1_punto_9():
                     primo_menor = 0
@@ -332,6 +364,8 @@ def menu_inicio():
                     else:
                         print("No se ingresaron números en la secuencia de Fibonacci.")
                 taller_1_punto_9()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 10:
                 def taller_1_punto_10():
                     cantidad = int(input("Digite la cantidad de datos: "))
@@ -372,6 +406,8 @@ def menu_inicio():
                         print(f"La suma de los factoriales de los números Fibonacci es: {sum_factoriales_fibonacci}")
 
                 taller_1_punto_10()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 11:
                 def taller_1_punto_11():
                     cantidad_datos=int(input("digite la cantidad de datos->"))
@@ -399,6 +435,8 @@ def menu_inicio():
                     else:
                         print("no hay primos")
                 taller_1_punto_11()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 12:
                 def taller_1_punto_12():
                     cd = int(input("Digite la cantidad de datos"))
@@ -461,6 +499,8 @@ def menu_inicio():
                             print(f"El promedio de los factoriales de los números primos es {prom_primos}, siendo mayor que el promedio de los factoriales de los números Fibonacci que es {prom_fib}")
 
                 taller_1_punto_12()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 13:
                 def taller_1_punto_13():
                     #Se tiene una cantidad de números dada donde hay varios primos determinar 
@@ -499,6 +539,8 @@ def menu_inicio():
                                 print(f"{p} x {contador_tablas} = {tabla}")
                                 contador_tablas+=1
                 taller_1_punto_13()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 14:
                 def taller_1_punto_14():
                     #Se tiene una cantidad de números dada donde hay varios números Fibonacci, obtener los Fibonacci 1, 3, 4 
@@ -554,6 +596,8 @@ def menu_inicio():
                                 print(f"el menor fibonacci es el primero=={primerf}")
                         
                 taller_1_punto_14()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 15:
                 def taller_1_punto_15():
                     #-	Se tiene una cantidad de números dada donde hay varios números Primos, obtener los primos  2, 3, 4  
@@ -623,6 +667,8 @@ def menu_inicio():
                                 print(f"El primo del medio es el tercero -> {tercerp}")
                                 print(f"El menor primo es el segundo -> {segundop}")
                 taller_1_punto_15()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 16:
                 def taller_1_punto_16():
                     # Se tiene una cantidad de números dada donde hay varios primos determinar 
@@ -651,6 +697,8 @@ def menu_inicio():
                     print("segundo primo", primo2)
                     print("tercer primo", primo3)
                 taller_1_punto_16()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 17:
                 def taller_1_punto_17():
                     cantidad = int(input("Digite la cantidad de números: "))
@@ -673,6 +721,8 @@ def menu_inicio():
                     else:
                         print(f"El número {num_buscado} no se encuentra en la lista.")
                 taller_1_punto_17()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 18:
                 def taller_1_punto_18():
                     cantidad = int(input("Digite la cantidad de números: "))
@@ -710,6 +760,8 @@ def menu_inicio():
                         print("No se encontró el primo mayor o el Fibonacci menor.")
 
                 taller_1_punto_18()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 19:
                 #Se tiene una cantidad de números dada. Encontrar el promedio de los números pares que se encuentran entre el  primo mayor y el Fibonacci menor7
                 def taller_1_punto_19():
@@ -761,6 +813,8 @@ def menu_inicio():
                     promedio = suma/pares
                     print("=",promedio)
                 taller_1_punto_19()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 20:
                 #Hallar la potencia de dos números con sumas
                 def taller_1_punto_20():
@@ -778,6 +832,8 @@ def menu_inicio():
                         contador += 1
                     print("El resultado de", num1, "elevado a la potencia", num2, "es:", potencia)
                 taller_1_punto_20()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 21:
                 def taller_1_punto_21():
                     #Hallar el factorial de un número con sumas
@@ -798,6 +854,8 @@ def menu_inicio():
 
                     print("El factorial de", num, "es:", factorial)
                 taller_1_punto_21()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 22:
                 def taller_1_punto_22():
                     cantidad = int(input("Digite la cantidad de números: "))
@@ -840,6 +898,8 @@ def menu_inicio():
                     else:
                         print("No hay números pares entre el primo mayor y el Fibonacci menor.")
                 taller_1_punto_22()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 23:
                 def taller_1_punto_23():
                     cantidad = int(input("Digite la cantidad de números: "))
@@ -898,6 +958,8 @@ def menu_inicio():
                     else:
                         print("No hay números impares entre el primo mayor y el Fibonacci menor.")
                 taller_1_punto_23()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 24:
                 #Se tiene una cantidad de números dada. Encontrar el promedio de los números que son Fibonacci y primos a la vez
                 def taller_1_punto_24():
@@ -928,6 +990,8 @@ def menu_inicio():
                     promedio_total = suma_ambos/fibonaccis_y_primos
                     print("promedio total de primos y fibonaccis de los numeros ingresados es", promedio_total)
                 taller_1_punto_24()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 25:
                 def taller_1_punto_25():  
                     segundo_primo = None
@@ -954,6 +1018,8 @@ def menu_inicio():
                                     contador_segundo_primo += 1
                     print(f"El segundo primo ({segundo_primo}) se repitió {contador_segundo_primo} veces más.")
                 taller_1_punto_25()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_1 == 26:
                 def taller_1_punto_26():
                     lado1 = int(input("Ingrese el lado 1 del triángulo: "))
@@ -967,6 +1033,8 @@ def menu_inicio():
                     else:
                         print("El triángulo es isósceles.")
                 taller_1_punto_26()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
         if respuesta == 2:
             respuesta_taller_2 = int(input("""Qué Punto desea ver a continuación:  
                                         1. Primo que más se repite
@@ -988,7 +1056,7 @@ def menu_inicio():
                                         17. Promedio multiplos de 3 entre segundo y tercer fibonacci
                                         18. Segundo, tecer fibonacci y sus posiciones, remplazarlas
                                            
-                                           :   """))
+                                        """ + Fore.YELLOW + "Ingrese su elección: " + Fore.RESET))
             if respuesta_taller_2 == 1:
                 #1.	Se tiene un vector con datos numéricos repetidos, determinar cuál es el primo que más se repite.
                 def taller_2_punto_1():
@@ -1022,6 +1090,8 @@ def menu_inicio():
                     else:
                         print("No hay primos repetidos")
                 taller_2_punto_1()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 2:
                 #2.	Se tiene un vector con datos numéricos eliminar los números pares.
                 def taller_2_punto_2():
@@ -1038,6 +1108,8 @@ def menu_inicio():
                             vector_final.append(n)
                     print(vector_final)
                 taller_2_punto_2()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 3:
                 #3.	Se tiene un vector con datos numéricos eliminar los datos que sean primos y Fibonacci.
                 numeros_no_fibonaccis_y_no_primos = []
@@ -1073,6 +1145,8 @@ def menu_inicio():
                         except ValueError:
                             print('Valor invalido, Ingrese un valor valido')
                 taller_2_punto_3()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
                 print("Los numeros que no son primos ni fibonaccis son:  ", numeros_no_fibonaccis_y_no_primos)
             if respuesta_taller_2 == 4:
                 #4.	Se tiene un vector ordenado con datos numéricos, insertar varios datos en la posición que le corresponde
@@ -1090,6 +1164,8 @@ def menu_inicio():
                                 lista[j+1] = temporal
                     print(lista)
                 taller_2_punto_4()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 5:
                 #5.	Leer una serie de datos numéricos y llenarlos en un vector de tal forma que vayan quedando ordenados ascendentemente
                 def taller_2_punto_5():
@@ -1107,6 +1183,8 @@ def menu_inicio():
                                 numeros[j], numeros[j+1] = numeros[j+1], numeros[j]
                     print("Números ordenados ascendentemente:", numeros)
                 taller_2_punto_5()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 6:
                 #6.	Leer una serie de datos numéricos y llenarlos en un vector los datos que sean primos y Fibonacci que vayan quedando ordenados descendentemente.
                 def taller_2_punto_6():
@@ -1170,6 +1248,8 @@ def menu_inicio():
                     resultado = quicksort(primos_y_fibonaccis)
                     print(resultado)
                 taller_2_punto_6()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 7:
                 #7.	Se tiene un vector con datos numéricos, ordenar las posiciones pares en orden ascendente y las impares en orden descendente.
                 def taller_2_punto_7():
@@ -1209,6 +1289,8 @@ def menu_inicio():
                     vector_resultante = ordenar_posiciones_pares_impares(numeros)
                     print(vector_resultante)  #[1, 10, 3, 8, 5, 6, 7, 4, 9, 2] Tiene que dar
                 taller_2_punto_7()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 8:
                 #8.	Se tiene un vector con datos numéricos, ordenar la mitad del vector en orden ascendente y la otra mitad en orden descendente.
                 def taller_2_punto_8():
@@ -1229,6 +1311,8 @@ def menu_inicio():
                     resultado = orden_ascendente_descendente(numeros)
                     print(resultado)  # Resultado: [1, 2, 3, 4, 5, 10, 9, 8, 7, 6]
                 taller_2_punto_8()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 9:
                 #9.	Se tiene un vector con datos numéricos, formar dos vectores uno con los números pares
                 # #y otro con los números primos y ordenarlos ascendente y descendente respectivamente.
@@ -1278,6 +1362,8 @@ def menu_inicio():
                                 pares[j+1] = temporal
                     print("Pares", pares)
                 taller_2_punto_9()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 10:
                 #10.	Se tiene un vector con datos numéricos ordenados y repetidos
                 # #mostrar los números y las veces que se repiten utilizando el concepto de rompimiento de control.
@@ -1298,6 +1384,8 @@ def menu_inicio():
                             contador_actual = 1
                     print(f"Número", numeros[-1], "Repeticiones:", contador_actual)
                 taller_2_punto_10()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 11:
                 #11.	Se tienen dos vectores con datos numéricos, en el primer vector hay números múltiplos de tres
                 # #que determinan la cantidad de datos de rangos correspondientes al vector dos,
@@ -1334,6 +1422,8 @@ def menu_inicio():
                             print("Rango", rango_actual, "Mayor:", max_valor, "Menor:", min_valor, "Promedio del rango:", promedio)
                         rango_actual += 1
                 taller_2_punto_11()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 12:
                 #12.	Se tienen dos vectores con datos numéricos formar un vector con los primos comunes sin datos repetidos.
                 def taller_2_punto_12():
@@ -1368,6 +1458,8 @@ def menu_inicio():
                     print('Primos comunes sin repetirse')
                     print(primos_comunes_sin_repetirse)
                 taller_2_punto_12()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 13:
                 #13.	Se tienen dos vectores con datos numéricos formar un vector con la unión de los Fibonacci sin repetidos.
                 def taller_2_punto_13():
@@ -1405,6 +1497,8 @@ def menu_inicio():
                             resultado.append(n)
                     print(resultado)
                 taller_2_punto_13()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 14:
                 #14.	Se tiene dos vectores con datos numéricos, el uno ordenado ascendentemente 
                 #y el otro ordenado descendentemente, formar un tercer vector por mezcla
@@ -1458,6 +1552,8 @@ def menu_inicio():
                     resultado = quicksort_descendente(vector)
                     print(resultado)
                 taller_2_punto_14()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 15:
                 #15.	Se tiene dos vectores con datos numéricos, el uno ordenado ascendentemente
                 #y el otro ordenado descendentemente, formar un tercer vector por mezcla de tal forma que
@@ -1529,6 +1625,8 @@ def menu_inicio():
                     resultado = quicksort_ascendente(vector)
                     print(resultado)
                 taller_2_punto_15()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 16:
                 #16.	Se tienen un vector con datos numéricos donde hay varios números Fibonacci
                 #formar un tercer vector con los números primos que están entre el Fibonacci mayor y el Fibonacci menor.
@@ -1570,6 +1668,8 @@ def menu_inicio():
                     print("primos entre el fibonacci menor:", menor, "y el fibonacci mayor:", mayor)
                     print(primos_entre)
                 taller_2_punto_16()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 17:
                 #17.	Se tienen un vector con datos numéricos donde hay varios números Fibonacci
                 #hallar el promedio de los múltiplos de tres, que están entre el segundo y tercer Fibonacci del vector.
@@ -1600,6 +1700,8 @@ def menu_inicio():
                     promedio = suma/contador
                     print(promedio)
                 taller_2_punto_17()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_2 == 18:
                 #18.	Se tiene un vector con datos numéricos donde hay varios Fibonacci,
                 #encontrar el segundo y tercer Fibonacci y sus posiciones,
@@ -1628,6 +1730,8 @@ def menu_inicio():
                     print("Tercer fibonacci:", tercer_fibonacci, "posición:", posicion_tercer_fibonacci)
                     print(numeros)
                 taller_2_punto_18()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
         if respuesta == 3:
             respuesta_taller_3 = int(input("""Escoja el punto que desea ver acontinuación: 
                                         
@@ -1697,7 +1801,7 @@ def menu_inicio():
 
                                             19.	Se tiene una matriz con datos numéricos repetidos, formar un vector con aquellos contadores de datos que se repiten y que sean números Fibonacci, sin repetidos
                                                 
-                                                    :   """))      
+                                            """ + Fore.YELLOW + "Ingrese su elección: " + Fore.RESET))      
             if respuesta_taller_3 == 1:
                 def taller_3_punto_1():
                     import random
@@ -1748,6 +1852,8 @@ def menu_inicio():
                     print(f"\nEl numero que menos se repite es: {numero_menos_repeticiones} con {min_repeticiones} repeticiones")
 
                 taller_3_punto_1()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 2:
                 def taller_3_punto_2():
                     import random
@@ -1799,6 +1905,8 @@ def menu_inicio():
                         print(f"El número menor de la columna {i+1} es el número: {numero_menor_columna}")
                         print(f"El número mayor de la columna {i+1} es el número: {numero_mayor_columna}")
                 taller_3_punto_2()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 3:
                 def taller_3_punto_3():
                     import random
@@ -1838,6 +1946,8 @@ def menu_inicio():
                         print(fila)
 
                 taller_3_punto_3()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 4:
                 def taller_3_punto_4():
                     import random
@@ -1891,6 +2001,8 @@ def menu_inicio():
                         print(fila)
 
                 taller_3_punto_4()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 5:
                 def taller_3_punto_5():
                     import random
@@ -1951,6 +2063,8 @@ def menu_inicio():
 
                     print(f"Fibonaccis comunes en las dos matrices: {fibonaccis_comunes_sin_repetidos}")
                 taller_3_punto_5()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 6:
                 def taller_3_punto_6():
                     
@@ -2021,6 +2135,8 @@ def menu_inicio():
                     print(f"Primos comunes sin repetidos: {primos_comunes_sin_repetidos}")
 
                 taller_3_punto_6()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 7:
                 def taller_3_punto_7():
                     #Se tiene una matriz cuadrada con datos numéricos, formar un vector con los primos que se encuentran en la diagonal principal y la diagonal secundaria
@@ -2059,6 +2175,8 @@ def menu_inicio():
 
                     print(f"primos en la diagonal primaria y secundaria: {primos}")
                 taller_3_punto_7()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 8:
                 def taller_3_punto_8():
                     import random
@@ -2117,6 +2235,8 @@ def menu_inicio():
                     else:
                         print(f"El promedio de los pares: {promedio_pares} es igual que el promedio de los impares: {promedio_impares}")
                 taller_3_punto_8()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 9:
                 def taller_3_punto_9():
                     import random
@@ -2183,6 +2303,8 @@ def menu_inicio():
                     else:
                         print(f"El primo: {segundo_primo} y el {cuarto_primo} no son consecutivos")  
                 taller_3_punto_9()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 10:
                 def taller_3_punto_10():
                     #Ordenar las columnas pares ascendentemente y las columnas impares descendentemente
@@ -2220,6 +2342,8 @@ def menu_inicio():
                         print(" ".join("{:4}".format(num) for num in fila))
 
                 taller_3_punto_10()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 11:
                 def taller_3_punto_11():
                     #Se tienen dos matrices ordenadas ascendentemente, obtener un vector ordenado ascendentemente con la mezcla de los dos anteriores. (ordenamiento por mezcla).
@@ -2300,6 +2424,8 @@ def menu_inicio():
                     print(resultado_combinado)
 
                 taller_3_punto_11()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 12:
                 def taller_3_punto_12():
                     #12.	Intercambiar las filas de una matriz de acuerdo al orden ascendente de los promedios de cada fila
@@ -2342,6 +2468,8 @@ def menu_inicio():
                     for i, fila in enumerate(matriz):
                         print(" ".join("{:4}".format(num) for num in fila),f" Promedio fila: {promedios[i]:.2f}")
                 taller_3_punto_12()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 13:
                 def taller_3_punto_13():
                     #	Se tiene una matriz cuadrada de orden N realizar lo siguiente
@@ -2537,6 +2665,8 @@ def menu_inicio():
                     for fila in matriz:
                         print(" ".join("{:4}".format(num) for num in fila))
                 taller_3_punto_13()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 14:
                 def taller_3_punto_14():
                     #14.	Se tienen dos matrices con datos numéricos y se solicita;
@@ -2625,6 +2755,8 @@ def menu_inicio():
                     print(f"Primos no comunes en ambas matrices: {primos_no_comunes}")
 
                 taller_3_punto_14()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 15:
                 def taller_3_punto_15():
                     import random
@@ -2674,6 +2806,8 @@ def menu_inicio():
                     print(f"\nContadores de numeros fibonacci que se repiten en la matriz\n {contadores_fibonaccis}")
 
                 taller_3_punto_15()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 16:
                 def taller_3_punto_16():
                     import random
@@ -2899,6 +3033,8 @@ def menu_inicio():
                         print(f"El primo: {cuarto_primo} no es consecutivo del segundo primo: {segundo_primo}")
 
                 taller_3_punto_16()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 17:
                 def taller_3_punto_17():
                     #17.	Se tiene una matriz cuadrada de orden N realizar lo siguiente
@@ -3057,6 +3193,8 @@ def menu_inicio():
                     print(f"y su interior con el impar menor: {impar_menor}")
                     mostrar_matriz(matriz)
                 taller_3_punto_17()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 18:
                 def taller_3_punto_18():
                     #18.	Se tienen dos matrices con datos numéricos y se solicita;
@@ -3139,6 +3277,8 @@ def menu_inicio():
 
                     print(f"Primos no comunes en las matricez: {sorted(primos_no_comunes)}")
                 taller_3_punto_18()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_taller_3 == 19:
                 def taller_3_punto_19():
                     #19.	Se tiene una matriz con datos numéricos repetidos,
@@ -3193,6 +3333,8 @@ def menu_inicio():
                     print(f"Contadores de fibonaccis que se repiten sin repetidos: {contadores}")
 
                 taller_3_punto_19()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
         if respuesta == 4:
             respuesta_evaluacion_1 = int(input("""Escoja un punto
                                             
@@ -3212,7 +3354,9 @@ def menu_inicio():
                                             en estos y si la suma de los perímetros de los triángulos equiláteros, es un número Fibonacci. 25%
                                             4.	Se tiene una cantidad de números dada, encontrar los tres primeros Fibonacci de acuerdo
                                             al orden de entrada y determinar el promedio de los números pares
-                                            que están entre el mayor y el menor de estos Fibonacci. 25%"""))
+                                            que están entre el mayor y el menor de estos Fibonacci. 25%
+                                               
+                                            """ + Fore.YELLOW + "Ingrese su elección: " + Fore.RESET))
             if respuesta_evaluacion_1 == 1:
                 def evaluacion_1_punto_1():
                     cantidad=int(input("Cantidad de numeros->"))
@@ -3274,6 +3418,8 @@ def menu_inicio():
                     resultado=suma2
                     print("La multiplicación con sumas es: ", resultado)
                 evaluacion_1_punto_1()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_evaluacion_1 == 2:
                 def evaluacion_1_punto_2():
                     cantidad = int(input("Ingrese la cantidad de números: "))
@@ -3315,6 +3461,8 @@ def menu_inicio():
                         print("El número de veces en el que se repite el segundo Fibonacci no es un número primo.")
 
                 evaluacion_1_punto_2()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_evaluacion_1 == 3:
                 def evaluacion_1_punto_3():
                     cantidad = int(input("Ingrese la cantidad de triángulos: "))
@@ -3356,6 +3504,8 @@ def menu_inicio():
                     else:
                         print("La suma de los perímetros de los triángulos equiláteros no es un número Fibonacci.")
                 evaluacion_1_punto_3()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_evaluacion_1 == 4:
                 def evaluacion_1_punto_4():
                     cantidad = int(input("Ingrese la cantidad de números: "))
@@ -3414,6 +3564,8 @@ def menu_inicio():
                     else:
                         print("No hay números pares entre el Fibonacci mayor y el Fibonacci menor.")
             evaluacion_1_punto_4()
+            input("Presione Enter para continuar...")
+            os.system("cls" if os.name == "nt" else "clear")
         if respuesta == 5:
             respuesta_evaluacion_2 = int(input("""Escoja un punto
                                             
@@ -3435,7 +3587,8 @@ def menu_inicio():
                                                 la cantidad de datos a tener en cuenta en el vector dos, formando dos rangos un rango con la cantidad
                                                 de datos que establece el Fibonacci y el rango dos con el resto, ordenar el primer rango en orden
                                                 ascendente y el segundo en orden descendente 
-                                                """))
+                                                                                             
+                                                """ + Fore.YELLOW + "Ingrese su elección: " + Fore.RESET))
             if respuesta_evaluacion_2 == 1:
                 def evaluacion_2_punto_1():
                     repeticiones = {}
@@ -3469,6 +3622,8 @@ def menu_inicio():
                     resultado = suma
                     print(f"{min_repeticiones}x{max_repeticiones}={resultado}")
                 evaluacion_2_punto_1()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_evaluacion_2 == 2:
                 def evaluacion_2_punto_2():
                     import random
@@ -3504,6 +3659,8 @@ def menu_inicio():
                     print("Vector 1:", vector1)
                     print("Vector 2:", vector2)
                 evaluacion_2_punto_2()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
             if respuesta_evaluacion_2 == 3:
                 def evaluacion_2_punto_3():
                     import random
@@ -3547,7 +3704,29 @@ def menu_inicio():
                     print(numeros2)
                     
                 evaluacion_2_punto_3()
+                input("Presione Enter para continuar...")
+                os.system("cls" if os.name == "nt" else "clear")
         if respuesta == 6:
-            print("Hasta Luego")
+            print(Fore.LIGHTCYAN_EX + """
+            ╔════════════════════════════════════════╗
+            ║                                        ║
+            ║              ¡Hasta Luego!             ║
+            ║                                        ║
+            ╠════════════════════════════════════════╣
+            ║                                        ║
+            ║ Desarrollado por:                      ║
+            ║ - Andrés Felipe Martinez Guerra        ║
+            ║ - Juan Felipe Pantoja Andrade          ║
+            ║ - Yoel Alejandro Torres Arciniegas     ║
+            ║                                        ║
+            ║                                        ║
+            ║         UNIVERSIDAD DE NARIÑO          ║
+            ║         FACULTA DE INGENIERÍA          ║
+            ║         INGENIERIA DE SISTEMAS         ║
+            ║                  2023                  ║
+            ║                                        ║
+            ╚════════════════════════════════════════╝
+            """ + Fore.RESET)
             break
+init(autoreset=True)
 menu_inicio()
