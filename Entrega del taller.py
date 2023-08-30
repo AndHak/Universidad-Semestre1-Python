@@ -3715,7 +3715,7 @@ def menu_inicio():
             ╠════════════════════════════════════════╣
             ║                                        ║
             ║ Desarrollado por:                      ║
-            ║ - Andrés Felipe Martinez Guerra        ║
+            ║ - Andrés Felipe Martínez Guerra        ║
             ║ - Juan Felipe Pantoja Andrade          ║
             ║ - Yoel Alejandro Torres Arciniegas     ║
             ║                                        ║
