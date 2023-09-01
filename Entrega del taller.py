@@ -3365,12 +3365,13 @@ def menu_inicio():
                     primos=0
                     fibonaccis=0
                     pares=0
+                    primo_mayor = 0
                     while contador<=cantidad:
                         num=int(input("Ingrese el número->"))
                         condicion=1
                         divisores=0
                         while condicion<=num:
-                            if num & condicion == 0:
+                            if num % condicion == 0:
                                 divisores+=1
                             condicion+=1
                         if divisores==2:
